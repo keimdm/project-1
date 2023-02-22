@@ -8,8 +8,20 @@ var latNYC = '40.7129';
 var lonNYC = '-74.0060';
 var hotSearch = "lemon";
 var coldSearch = "chocolate";
+var CurrentLocation= "new-york"
 
 // FUNCTIONS
+function getCurrentLocation() {
+    if ('geolocation' in Navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position.coords.latitude);
+        });
+    }
+    else {
+         x.innerHTML="Geolocation is not supported.";
+         console.log(innerHTML);
+    }
+}
 function getWeather(lat,lon) {
     fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=f53b5109b06704799e5260e2dda10bda')
 .then(response => {
@@ -19,17 +31,6 @@ function getWeather(lat,lon) {
     console.log(data);
     getCocktails(data.main.temp);
 });
-function getCurrentLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (showPosition) {
-            console.log(position.coords.latitude);
-        });
-    }
-    else {
-         x.innerHTML="Geolocation is not supported.";
-         console.log(innerHTML);
-    }
-}
 
 }
 
