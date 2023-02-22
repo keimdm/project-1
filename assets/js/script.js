@@ -15,6 +15,7 @@ function getCurrentLocation() {
     if ('geolocation' in Navigator) {
         navigator.geolocation.getCurrentPosition(function (position) {
             console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
         });
     }
     else {
@@ -22,7 +23,22 @@ function getCurrentLocation() {
          console.log(innerHTML);
     }
 }
-function getWeather(lat,lon) {
+function getWeather() {
+    var lat;
+    var lon;
+    if ('geolocation' in Navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            lat=position.coords.latitude;
+            lon=position.coords.longitude;
+            console.log(position.coords.latitude);
+            
+        });
+    }
+    else {
+         lat='40.7129';
+         lon='-74.0600';
+    }
+
     fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=f53b5109b06704799e5260e2dda10bda')
 .then(response => {
     return response.json();
