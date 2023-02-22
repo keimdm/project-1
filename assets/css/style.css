@@ -1,0 +1,35 @@
+#today-cocktail {
+  border-style: solid;
+  border-color: purple;
+  padding: 3%;
+}
+#form {
+  border-style: solid;
+  border-color: black;
+  border-width: 0 5px 5px 0;
+}
+
+#search {
+  background-color: aqua;
+  border-width: 3px;
+  font-size: 15px;
+  padding-bottom: 2%;
+}
+
+#results {
+  border-style: solid;
+  border-color: purple;
+  padding: 3%;
+}
+
+body {
+  background-color: yellow;
+}
+.title {
+  display: flex;
+  margin-left: 600px;
+}
+.header {
+  display: flex;
+  background-color: rgb(153, 61, 61);
+}
