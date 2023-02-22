@@ -19,6 +19,17 @@ function getWeather(lat,lon) {
     console.log(data);
     getCocktails(data.main.temp);
 });
+function getCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (showPosition) {
+            console.log(position.coords.latitude);
+        });
+    }
+    else {
+         x.innerHTML="Geolocation is not supported.";
+         console.log(innerHTML);
+    }
+}
 
 }
 
