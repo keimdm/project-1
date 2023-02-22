@@ -8,21 +8,9 @@ var latNYC = '40.7129';
 var lonNYC = '-74.0060';
 var hotSearch = "lemon";
 var coldSearch = "chocolate";
-var CurrentLocation= "new-york"
+
 
 // FUNCTIONS
-function getCurrentLocation() {
-    if ('geolocation' in Navigator) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
-        });
-    }
-    else {
-         x.innerHTML="Geolocation is not supported.";
-         console.log(innerHTML);
-    }
-}
 function getWeather() {
     var lat;
     var lon;
@@ -30,16 +18,19 @@ function getWeather() {
         navigator.geolocation.getCurrentPosition(function (position) {
             lat=position.coords.latitude;
             lon=position.coords.longitude;
-            console.log(position.coords.latitude);
-            
         });
     }
     else {
-         lat='40.7129';
-         lon='-74.0600';
+         lat="40.7129";
+         lon="-74.0060";
     }
-
-    fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=f53b5109b06704799e5260e2dda10bda')
+fetch(
+    "https://api.openweathermap.org/data/2.5/weather?lat=" +
+      lat +
+      "&lon=" +
+      lon +
+      "&appid=f53b5109b06704799e5260e2dda10bda"
+  )
 .then(response => {
     return response.json();
 })
@@ -47,8 +38,8 @@ function getWeather() {
     console.log(data);
     getCocktails(data.main.temp);
 });
-
 }
+
 
 function getCocktails(temperature) {
     var ingredients;
