@@ -16,6 +16,7 @@ $("#search").on("click", function (event) {
     contentType: "application/json",
     success: function (result) {
       console.log(result);
+      cocktailList.empty();
       displayResults(result);
     },
     error: function ajaxError(jqXHR) {
