@@ -32,23 +32,37 @@ var lonNYC = "-74.0060";
 var hotSearch = "lemon";
 var coldSearch = "chocolate";
 
+
 // FUNCTIONS
-function getWeather(lat, lon) {
-  fetch(
+function getWeather() {
+    var lat;
+    var lon;
+    if ('geolocation' in Navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            lat=position.coords.latitude;
+            lon=position.coords.longitude;
+        });
+    }
+    else {
+         lat="40.7129";
+         lon="-74.0060";
+    }
+fetch(
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
       lat +
       "&lon=" +
       lon +
       "&appid=f53b5109b06704799e5260e2dda10bda"
   )
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      getCocktails(data.main.temp);
-    });
+.then(response => {
+    return response.json();
+})
+.then(data => {
+    console.log(data);
+    getCocktails(data.main.temp);
+});
 }
+
 
 function getCocktails(temperature) {
   var ingredients;
