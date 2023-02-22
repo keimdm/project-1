@@ -28,6 +28,19 @@
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+body{
+ background-color: yellow;
+}
+.title{
+ display: flex;
+ margin-left:600px;
+
+}
+.header{
+  display: flex;
+  
+  background-color: rgb(153, 61, 61)
+}
 .container {
   position: relative;
   width: 100%;
