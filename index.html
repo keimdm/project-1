@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--Link to Skeleton-->
-    <link rel="stylesheet" href="./assets/css/normalize.css">
-    <link rel="stylesheet" href="./assets/css/skeleton.css">
-    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Link to Skeleton-->
+    <link rel="stylesheet" href="./assets/css/normalize.css" />
+    <link rel="stylesheet" href="./assets/css/skeleton.css" />
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Breezy Cocktail</title>
-</head>
-<body>
-      <!--Add Header with title-->
-        <div class="header">
-          <h1>Breezy Cocktaill</h1>
-        </div>
-      <!--Add list object or container of some kind with id recipe-list-->
-        <div class="container">
-          <div class="row">
-           <div class="one-half column" style="margin-top: 25%" id="cocktail-list"></div>
-          </div>
-        </div>
+  </head>
+  <body>
+    <!--Add Header with title-->
+    <div class="header">
+      <h1>Breezy Cocktaill</h1>
+    </div>
+    <form action="">
+      <input id="ing-search" type="text" placeholder="ingredient" />
+    </form>
+    <button id="search">Search</button>
+
+    <!--Add list object or container of some kind with id recipe-list-->
+    <div class="container">
+      <div class="row">
+        <div
+          class="one-half column"
+          style="margin-top: 25%"
+          id="cocktail-list"
+        ></div>
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
+
