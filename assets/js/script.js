@@ -29,8 +29,6 @@ $("#search").on("click", function (event) {
 // add NYC latitude and longitude
 var latNYC = "40.7129";
 var lonNYC = "-74.0060";
-var hotSearch = "lemon";
-var coldSearch = "chocolate";
 
 
 // FUNCTIONS
@@ -44,8 +42,8 @@ function getWeather() {
         });
     }
     else {
-         lat="40.7129";
-         lon="-74.0060";
+         lat=latNYC;
+         lon=lonNYC;
     }
 fetch(
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
