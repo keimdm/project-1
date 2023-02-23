@@ -237,14 +237,25 @@ $("#search").on("click", function (event) {
   }
 });
 
-$("#search-form").on("submit", function (event) {
+addIngredientButton.on("click", function (event) {
   event.preventDefault();
   ingredient = searchInput.val();
-  console.log(ingredient);
-  if (ingredient !== "") {
-    searchCocktails(ingredient);
-  }
+
+  addIngredient(ingredient);
 });
+function addIngredient(ingredient) {
+  const ingredientList = [];
+  // let newArray = [].concat(ingredientList);
+  // console.log(newArray)
+  ingredientList.push(ingredient);
+  // let newIngredient = ingredient;
+  // let material = ingredient;
+  // material = ingredient + material;
+
+  // ingredientList = [...ingredientList];
+
+  console.log(ingredientList);
+}
 
 // INITIALIZATIONS
 checkLocation();
