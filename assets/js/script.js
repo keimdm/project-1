@@ -4,8 +4,6 @@ var searchInput = $("#ing-search");
 var searchButEl = $("#search");
 var todayCocktail = $("#today-cocktail");
 var ingredient;
-var addIngredientButton = $("#add-ingredient");
-
 // DATA
 // add NYC latitude and longitude
 var latNYC = "40.7129";
@@ -168,6 +166,26 @@ function getCocktails(temperature) {
     },
   });
 }
+//Function the have the user save their favorite cocktail reciepe
+function saveUserFav(data) {
+  console.log(data);
+  var favoritesList = localStorage.getItem("favoritesList");
+  if (!favoritesList) {
+    favoritesList = [];
+  } else {
+    favoritesList = JSON.parse(favoritesList);
+  }
+
+  favoritesList.push(data);
+
+  localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
+  // event.preventDefault();
+  // insert your fav cocktail
+  //     var cocktail= cocktailInput.value;
+  //    localStorage.setItem('cocktail', cocktail);
+
+  //     window.location.reload();
+}
 
 function displayCocktailDay(data) {
   var cocktailRand = Math.floor(Math.random() * data.length);
@@ -183,6 +201,7 @@ function displayCocktailDay(data) {
 }
 
 function displayResults(data) {
+  console.log("hello from displayResults");
   // loop through all entries in cocktail data
   for (i = 0; i < data.length; i++) {
     // create elements needed for cocktail recipe display
@@ -190,8 +209,15 @@ function displayResults(data) {
     var newTitle = $(document.createElement("p"));
     var newIngredients = $(document.createElement("ul"));
     var newInstructions = $(document.createElement("p"));
+    var saveButton = $(document.createElement("button"));
+
     // set element properties
     newTitle.text(data[i].name);
+    saveButton.text("save");
+    saveButton.click(function (event) {
+      saveUserFav(data);
+    });
+
     // loop through all ingredient entries and add them to new Ingredients list
     for (j = 0; j < data[i].ingredients.length; j++) {
       newItem = $(document.createElement("li"));
@@ -203,6 +229,7 @@ function displayResults(data) {
     newCard.append(newTitle);
     newCard.append(newIngredients);
     newCard.append(newInstructions);
+    newCard.append(saveButton);
     // append card onto cocktail list
     cocktailList.append(newCard);
   }
