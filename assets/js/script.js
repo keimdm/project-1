@@ -312,7 +312,7 @@ function addIngredient(ingredient) {
 $("#clear").on("click", function () {
   console.log("clear");
   ingredientList = [];
-  displayList.remove();
+  displayList.empty();
 });
 
 // INITIALIZATIONS
