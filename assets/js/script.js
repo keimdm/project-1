@@ -162,27 +162,43 @@ function displayResults(data) {
   }
 }
 
+function searchCocktails(ingInput) {
+    console.log("search");
+    $.ajax({
+        method: "GET",
+        //Only cocktails containing all listed ingredients will be returned.
+        url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingInput,
+        headers: { "X-Api-Key": "FY5H8mVkxpSV+RQ0ub8Cbg==HmezQ5tZdVLtj20h" },
+        contentType: "application/json",
+        success: function (result) {
+          console.log(result);
+          cocktailList.empty();
+          displayResults(result);
+        },
+        error: function ajaxError(jqXHR) {
+          console.error("Error: ", jqXHR.responseText);
+        },
+      });
+}
+
 // USER INTERACTIONS
 $("#search").on("click", function (event) {
     event.preventDefault();
     ingredient = searchInput.val();
     console.log(ingredient);
-    $.ajax({
-      method: "GET",
-      //Only cocktails containing all listed ingredients will be returned.
-      url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingredient,
-      headers: { "X-Api-Key": "FY5H8mVkxpSV+RQ0ub8Cbg==HmezQ5tZdVLtj20h" },
-      contentType: "application/json",
-      success: function (result) {
-        console.log(result);
-        cocktailList.empty();
-        displayResults(result);
-      },
-      error: function ajaxError(jqXHR) {
-        console.error("Error: ", jqXHR.responseText);
-      },
-    });
-  });
+    if (ingredient !== "") {
+        searchCocktails(ingredient);    
+    }
+});
+
+$("#search-form").on("submit", function (event) {
+    event.preventDefault();
+    ingredient = searchInput.val();
+    console.log(ingredient);
+    if (ingredient !== "") {
+        searchCocktails(ingredient);    
+    }
+});
 
 // INITIALIZATIONS
 checkLocation();
