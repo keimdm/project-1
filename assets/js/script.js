@@ -4,6 +4,7 @@ var searchInput = $("#ing-search");
 var searchButEl = $("#search");
 var todayCocktail = $("#today-cocktail");
 var ingredient;
+var addIngredientButton = $("#add-ingredient");
 
 // DATA
 // add NYC latitude and longitude
@@ -206,7 +207,7 @@ $("#search").on("click", function (event) {
   event.preventDefault();
   ingredient = searchInput.val();
   console.log(ingredient);
-
+  // addIngredient(ingredient);
   $.ajax({
     method: "GET",
     //Only cocktails containing all listed ingredients will be returned.
@@ -223,6 +224,32 @@ $("#search").on("click", function (event) {
     },
   });
 });
+
+addIngredientButton.on("click", function (event) {
+  event.preventDefault();
+  ingredient = searchInput.val();
+  console.log(ingredient);
+  addIngredient(ingredient);
+});
+function addIngredient(ingredient) {
+  let ingredientList = [];
+  let newIngredientList = [];
+  let ingredientCombo = ingredient;
+  // ingredientCombo = ingredient + "" + ingredientCombo;
+  // ingredientList.push(ingredientCombo);
+  // newIngredientList = [...ingredientList];
+  // ingredientList = [...ingredientList];
+  if (ingredientList === []) {
+    ingredientList.push(ingredientCombo);
+  } else {
+    ingredientCombo = ingredientCombo + ingredient;
+    // newIngredientList.push(ingredient);
+    ingredientList = [ingredientCombo];
+  }
+  console.log(ingredientCombo);
+
+  console.log(ingredientList);
+}
 
 // INITIALIZATIONS
 checkLocation();
