@@ -160,13 +160,14 @@ function displayResults(data) {
   for (i = 0; i < data.length; i++) {
     // create elements needed for cocktail recipe display
     var newCard = $(document.createElement("article"));
-    var newTitle = $(document.createElement("p"));
+    var newTitle = $(document.createElement("h1"));
     var newIngredients = $(document.createElement("ul"));
     var newInstructions = $(document.createElement("p"));
     var saveButton= $(document.createElement('button'));
 
     // set element properties
     newTitle.text(data[i].name);
+    newCard.addClass("result")
     saveButton.text('save');
     saveButton.click(function (event) {
         saveUserFav(data);
