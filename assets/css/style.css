@@ -1,3 +1,30 @@
+.header {
+  display: flex;
+  background-color: rgb(153, 61, 61);
+  text-align: left;
+  /* border: red solid 5px; */
+  width: 100%;
+  color: white;
+}
+
+#logo {
+  display: flex;
+  height: 100%;
+  margin: 5px;
+  align-self: center;
+  border: white 1px solid;
+}
+.title {
+  display: flex;
+  margin: 0.6em;
+  margin-left: 0.3em;
+  margin-top: 0.8em;
+  font-family: "Caveat", cursive;
+  text-decoration: dotted;
+  text-shadow: 1px 1px 2px red, 0 0 1em rgb(255, 0, 208),
+    0 0 0.2em rgb(17, 0, 255);
+}
+
 #today-cocktail {
   border-style: solid;
   border-color: purple;
@@ -10,10 +37,11 @@
 }
 
 #search {
-  background-color: aqua;
+  background-color: rgb(153, 61, 61);
   border-width: 3px;
   font-size: 15px;
   padding-bottom: 2%;
+  color: white;
 }
 
 #results {
@@ -23,13 +51,5 @@
 }
 
 body {
-  background-color: yellow;
-}
-.title {
-  display: flex;
-  margin-left: 600px;
-}
-.header {
-  display: flex;
-  background-color: rgb(153, 61, 61);
+  background-color: rgb(246, 215, 176);
 }
