@@ -25,13 +25,17 @@ function checkLocation() {
         navigator.geolocation.getCurrentPosition(function (position) {
             lat=position.coords.latitude;
             lon=position.coords.longitude;
+            console.log("allowed");
+            getWeather(lat, lon);
+        }, function () {
+            lat=latNYC;
+            lon=lonNYC;
+            console.log("blocked");
             getWeather(lat, lon);
         });
     }
     else {
-         lat=latNYC;
-         lon=lonNYC;
-         getWeather(lat, lon);
+
     }
 }
 
