@@ -4,7 +4,6 @@ var searchInput = $("#ing-search");
 var searchButEl = $("#search");
 var todayCocktail = $("#today-cocktail");
 var ingredient;
-
 // DATA
 // add NYC latitude and longitude
 var latNYC = "40.7129";
@@ -120,6 +119,26 @@ function getCocktails(temperature) {
     },
   });
 }
+//Function the have the user save their favorite cocktail reciepe
+function saveUserFav(data){
+    console.log(data)
+    var favoritesList = localStorage.getItem('favoritesList');
+    if (!favoritesList) {
+        favoritesList = [];
+    } else {
+        favoritesList = JSON.parse(favoritesList);
+    }
+
+    favoritesList.push(data);
+
+    localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
+    // event.preventDefault();
+    // insert your fav cocktail
+//     var cocktail= cocktailInput.value;
+//    localStorage.setItem('cocktail', cocktail);
+    
+//     window.location.reload();
+}
 
 function displayCocktailDay(data) {
     var cocktailRand = Math.floor(Math.random() * data.length);
@@ -132,9 +151,11 @@ function displayCocktailDay(data) {
         todayCocktail.children().eq(2).append(newLI);
     }
     todayCocktail.children().eq(3).text(cocktailSelected.instructions);
+    
 }
 
 function displayResults(data) {
+    console.log('hello from displayResults')
   // loop through all entries in cocktail data
   for (i = 0; i < data.length; i++) {
     // create elements needed for cocktail recipe display
@@ -142,23 +163,49 @@ function displayResults(data) {
     var newTitle = $(document.createElement("p"));
     var newIngredients = $(document.createElement("ul"));
     var newInstructions = $(document.createElement("p"));
+    var saveButton= $(document.createElement('button'));
+
     // set element properties
     newTitle.text(data[i].name);
-    newCard.addClass("recipe");
+    saveButton.text('save');
+    saveButton.click(function (event) {
+        saveUserFav(data);
+    });
+
     // loop through all ingredient entries and add them to new Ingredients list
     for (j = 0; j < data[i].ingredients.length; j++) {
-      newItem = $(document.createElement("li"));
-      newItem.text(data[i].ingredients[j]);
-      newIngredients.append(newItem);
+        newItem = $(document.createElement("li"));
+        newItem.text(data[i].ingredients[j]);
+        newIngredients.append(newItem);
     }
     newInstructions.text(data[i].instructions);
     // append elements onto card
     newCard.append(newTitle);
     newCard.append(newIngredients);
     newCard.append(newInstructions);
+    newCard.append(saveButton);
     // append card onto cocktail list
     cocktailList.append(newCard);
   }
+}
+
+function searchCocktails(ingInput) {
+    console.log("search");
+    $.ajax({
+        method: "GET",
+        //Only cocktails containing all listed ingredients will be returned.
+        url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingInput,
+        headers: { "X-Api-Key": "FY5H8mVkxpSV+RQ0ub8Cbg==HmezQ5tZdVLtj20h" },
+        contentType: "application/json",
+        success: function (result) {
+          console.log(result);
+          cocktailList.empty();
+          displayResults(result);
+        },
+        error: function ajaxError(jqXHR) {
+          console.error("Error: ", jqXHR.responseText);
+        },
+      });
 }
 
 // USER INTERACTIONS
@@ -166,22 +213,19 @@ $("#search").on("click", function (event) {
     event.preventDefault();
     ingredient = searchInput.val();
     console.log(ingredient);
-    $.ajax({
-      method: "GET",
-      //Only cocktails containing all listed ingredients will be returned.
-      url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingredient,
-      headers: { "X-Api-Key": "FY5H8mVkxpSV+RQ0ub8Cbg==HmezQ5tZdVLtj20h" },
-      contentType: "application/json",
-      success: function (result) {
-        console.log(result);
-        cocktailList.empty();
-        displayResults(result);
-      },
-      error: function ajaxError(jqXHR) {
-        console.error("Error: ", jqXHR.responseText);
-      },
-    });
-  });
+    if (ingredient !== "") {
+        searchCocktails(ingredient);    
+    }
+});
+
+$("#search-form").on("submit", function (event) {
+    event.preventDefault();
+    ingredient = searchInput.val();
+    console.log(ingredient);
+    if (ingredient !== "") {
+        searchCocktails(ingredient);    
+    }
+});
 
 // INITIALIZATIONS
 checkLocation();
