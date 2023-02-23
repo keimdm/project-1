@@ -78,10 +78,29 @@ function getCocktails(temperature) {
     var randCold = Math.floor(Math.random() * coldIngredients.length);
     ingredientA = coldIngredients[randCold];
   }
+  var currentMonth = dayjs().month();
+  if (currentMonth === 0 || currentMonth === 1 || currentMonth === 2) {
+    var randWinter = Math.floor(Math.random() * winterIngredients.length);
+    ingredientB = winterIngredients[randWinter];
+  }
+  else if (currentMonth === 3 || currentMonth === 4 || currentMonth === 5) {
+    var randSpring = Math.floor(Math.random() * springIngredients.length);
+    ingredientB = springIngredients[randSpring];
+  }
+  else if (currentMonth === 6 || currentMonth === 7 || currentMonth === 8) {
+    var randSummer = Math.floor(Math.random() * summerIngredients.length);
+    ingredientB = summerIngredients[randSummer];
+  }
+  else {
+    var randFall = Math.floor(Math.random() * fallIngredients.length);
+    ingredientB = fallIngredients[randFall];
+  }
+  var searchString = ingredientA + ", " + ingredientB;
+  console.log(searchString);
   $.ajax({
     method: "GET",
     //Only cocktails containing all listed ingredients will be returned.
-    url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingredients,
+    url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + searchString,
     headers: { "X-Api-Key": "FY5H8mVkxpSV+RQ0ub8Cbg==HmezQ5tZdVLtj20h" },
     contentType: "application/json",
     success: function (result) {
