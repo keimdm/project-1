@@ -105,12 +105,34 @@ function getCocktails(temperature) {
     contentType: "application/json",
     success: function (result) {
       console.log(result);
-      displayResults(result);
+      //if no cocktail is found, search again with only one ingredient
+      if (result.length === 0) {
+        $.ajax({
+            method: "GET",
+            url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingredientA,
+            headers: { "X-Api-Key": "FY5H8mVkxpSV+RQ0ub8Cbg==HmezQ5tZdVLtj20h" },
+            contentType: "application/json",
+            success: function (result2) {
+              console.log(result2);
+              displayCocktailDay(result2);
+            },
+            error: function ajaxError(jqXHR) {
+              console.error("Error: ", jqXHR.responseText);
+            },
+          });
+      }
+      else {
+        displayCocktailDay(result);
+      }
     },
     error: function ajaxError(jqXHR) {
       console.error("Error: ", jqXHR.responseText);
     },
   });
+}
+
+function displayCocktailDay(data) {
+    
 }
 
 function displayResults(data) {
