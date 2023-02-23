@@ -1,3 +1,25 @@
+.header {
+  display: flex;
+  background-color: rgb(153, 61, 61);
+  text-align: left;
+  border: red solid 5px;
+  width: 100%;
+  color: white;
+}
+
+#logo {
+  display: flex;
+  height: 100%;
+  align-self: center;
+  margin-left: 10px;
+  border: white 1px solid;
+}
+.title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
 #today-cocktail {
   border-style: solid;
   border-color: purple;
@@ -24,12 +46,4 @@
 
 body {
   background-color: yellow;
-}
-.title {
-  display: flex;
-  margin-left: 600px;
-}
-.header {
-  display: flex;
-  background-color: rgb(153, 61, 61);
 }
