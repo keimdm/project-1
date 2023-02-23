@@ -18,33 +18,40 @@ var winterIngredients = ["pear", "orange", "cream", "lemon", "pomegranate", "por
 var tempThreshold = 283
 
 // FUNCTIONS
-function getWeather() {
+function checkLocation() {
     var lat;
     var lon;
-    if ('geolocation' in Navigator) {
+    if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(function (position) {
             lat=position.coords.latitude;
             lon=position.coords.longitude;
+            getWeather(lat, lon);
         });
     }
     else {
          lat=latNYC;
          lon=lonNYC;
+         getWeather(lat, lon);
     }
-fetch(
-    "https://api.openweathermap.org/data/2.5/weather?lat=" +
-      lat +
-      "&lon=" +
-      lon +
-      "&appid=f53b5109b06704799e5260e2dda10bda"
-  )
-.then(response => {
-    return response.json();
-})
-.then(data => {
-    console.log(data);
-    getCocktails(data.main.temp);
-});
+}
+
+function getWeather(latitude, longitude) {
+    console.log(latitude);
+    console.log(longitude);
+    fetch(
+        "https://api.openweathermap.org/data/2.5/weather?lat=" +
+        latitude +
+        "&lon=" +
+        longitude +
+        "&appid=f53b5109b06704799e5260e2dda10bda"
+    )
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        getCocktails(data.main.temp);
+    });
 }
 
 function getCocktails(temperature) {
@@ -172,4 +179,4 @@ $("#search").on("click", function (event) {
   });
 
 // INITIALIZATIONS
-getWeather(latNYC, lonNYC);
+checkLocation();
