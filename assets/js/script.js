@@ -3,6 +3,7 @@ var cocktailList = $("#cocktail-list");
 var searchInput = $("#ing-search");
 var searchButEl = $("#search");
 var todayCocktail = $("#today-cocktail");
+var addIngredientButton = $("#add-ingredient");
 var ingredient;
 // DATA
 // add NYC latitude and longitude
@@ -275,6 +276,7 @@ function addIngredient(ingredient) {
   // ingredientList[ingredientList.length] = ingredient;
   // let newArray = [].concat(ingredientList);
   // console.log(newArray)
+
   ingredientList.push(ingredient);
   // let newIngredient = ingredient;
   // let material = ingredient;
