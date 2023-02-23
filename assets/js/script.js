@@ -72,15 +72,21 @@ function checkLocation() {
   var lat;
   var lon;
   if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      lat = position.coords.latitude;
-      lon = position.coords.longitude;
-      getWeather(lat, lon);
-    });
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        console.log("allowed");
+        getWeather(lat, lon);
+      },
+      function () {
+        lat = latNYC;
+        lon = lonNYC;
+        console.log("blocked");
+        getWeather(lat, lon);
+      }
+    );
   } else {
-    lat = latNYC;
-    lon = lonNYC;
-    getWeather(lat, lon);
   }
 }
 
@@ -202,16 +208,12 @@ function displayResults(data) {
   }
 }
 
-// USER INTERACTIONS
-$("#search").on("click", function (event) {
-  event.preventDefault();
-  ingredient = searchInput.val();
-  console.log(ingredient);
-  // addIngredient(ingredient);
+function searchCocktails(ingInput) {
+  console.log("search");
   $.ajax({
     method: "GET",
     //Only cocktails containing all listed ingredients will be returned.
-    url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingredient,
+    url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingInput,
     headers: { "X-Api-Key": "FY5H8mVkxpSV+RQ0ub8Cbg==HmezQ5tZdVLtj20h" },
     contentType: "application/json",
     success: function (result) {
@@ -223,33 +225,26 @@ $("#search").on("click", function (event) {
       console.error("Error: ", jqXHR.responseText);
     },
   });
-});
+}
 
-addIngredientButton.on("click", function (event) {
+// USER INTERACTIONS
+$("#search").on("click", function (event) {
   event.preventDefault();
   ingredient = searchInput.val();
   console.log(ingredient);
-  addIngredient(ingredient);
-});
-function addIngredient(ingredient) {
-  let ingredientList = [];
-  let newIngredientList = [];
-  let ingredientCombo = ingredient;
-  // ingredientCombo = ingredient + "" + ingredientCombo;
-  // ingredientList.push(ingredientCombo);
-  // newIngredientList = [...ingredientList];
-  // ingredientList = [...ingredientList];
-  if (ingredientList === []) {
-    ingredientList.push(ingredientCombo);
-  } else {
-    ingredientCombo = ingredientCombo + ingredient;
-    // newIngredientList.push(ingredient);
-    ingredientList = [ingredientCombo];
+  if (ingredient !== "") {
+    searchCocktails(ingredient);
   }
-  console.log(ingredientCombo);
+});
 
-  console.log(ingredientList);
-}
+$("#search-form").on("submit", function (event) {
+  event.preventDefault();
+  ingredient = searchInput.val();
+  console.log(ingredient);
+  if (ingredient !== "") {
+    searchCocktails(ingredient);
+  }
+});
 
 // INITIALIZATIONS
 checkLocation();
