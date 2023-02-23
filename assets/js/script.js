@@ -2,6 +2,12 @@
 var cocktailList = $("#cocktail-list");
 var searchInput = $("#ing-search");
 var searchButEl = $("#search");
+var hotIngredients = ["mint", "lime", "lemon", "orange", "coconut", "pineapple", "watermelon", "mango", "cucumber", "grapefruit"];
+var coldIngredients = ["chocolate", "maple", "cranberry", "coffee", "honey", "port", "cream", "apple", "pear"];
+var springIngredients = ["strawberry", "lemon", "lime", "pineapple", "cherries", "peach", "kiwi", "oranges", "apricot", "melon"];
+var summerIngredients = ["bananas", "blackberries", "blueberries", "raspberries", "tomato", "watermelon", "lemon", "lime", "mango"];
+var fallIngredients = ["apple", "cider", "caramel", "cinnamon", "ginger"];
+var winterIngredients = ["pear", "orange", "cream", "lemon", "pomegranate", "port"];
 var ingredient;
 
 $("#search").on("click", function (event) {
@@ -60,7 +66,6 @@ fetch(
     getCocktails(data.main.temp);
 });
 }
-
 
 function getCocktails(temperature) {
   var ingredients;
