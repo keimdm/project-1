@@ -6,7 +6,6 @@ var todayCocktail = $("#today-cocktail");
 var addIngredientButton = $("#add-ingredient");
 var ingredient;
 var displayList = $("#display-list");
-
 var dialog = $("#dialog");
 
 // DATA
@@ -309,6 +308,12 @@ function addIngredient(ingredient) {
 
   console.log(ingredientList);
 }
+
+$("#clear").on("click", function () {
+  console.log("clear");
+  ingredientList = [];
+  displayList.remove();
+});
 
 // INITIALIZATIONS
 checkLocation();
