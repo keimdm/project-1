@@ -5,8 +5,13 @@ var searchButEl = $("#search");
 var todayCocktail = $("#today-cocktail");
 var addIngredientButton = $("#add-ingredient");
 var ingredient;
+var displayList = $("#display-list");
+
+var dialog = $("#dialog");
+
 // DATA
 // add NYC latitude and longitude
+var ingredientList = [];
 var latNYC = "40.7129";
 var lonNYC = "-74.0060";
 var hotIngredients = [
@@ -259,6 +264,13 @@ function searchCocktails(ingInput) {
 $("#search").on("click", function (event) {
   event.preventDefault();
   ingredient = searchInput.val();
+  for (let i = 0; i < ingredientList.length; i++) {
+    if (ingredient === "") {
+      ingredient = ingredientList[i];
+    } else {
+      ingredient = ingredient + ", " + ingredientList[i];
+    }
+  }
   console.log(ingredient);
   if (ingredient !== "") {
     searchCocktails(ingredient);
@@ -268,24 +280,37 @@ $("#search").on("click", function (event) {
 addIngredientButton.on("click", function (event) {
   event.preventDefault();
   ingredient = searchInput.val();
-
   addIngredient(ingredient);
+  searchInput.val("");
+  var ingredientListItem = $(document.createElement("li"));
+  ingredientListItem.text(ingredient);
+  displayList.append(ingredientListItem);
 });
+
 function addIngredient(ingredient) {
-  const ingredientList = [];
-  // ingredientList[ingredientList.length] = ingredient;
-  // let newArray = [].concat(ingredientList);
-  // console.log(newArray)
-
   ingredientList.push(ingredient);
-  // let newIngredient = ingredient;
-  // let material = ingredient;
-  // material = ingredient + material;
-
-  // ingredientList = [...ingredientList];
 
   console.log(ingredientList);
 }
 
 // INITIALIZATIONS
 checkLocation();
+
+//Pop-Up-Message
+$(function () {
+  $("#dialog").dialog({
+    autoOpen: false,
+    show: {
+      effect: "blind",
+      duration: 1000,
+    },
+    hide: {
+      effect: "explode",
+      duration: 1000,
+    },
+  });
+
+  $("#opener").on("click", function () {
+    $("#dialog").dialog("open");
+  });
+});
