@@ -9,6 +9,7 @@ var summerIngredients = ["bananas", "blackberries", "blueberries", "raspberries"
 var fallIngredients = ["apple", "cider", "caramel", "cinnamon", "ginger"];
 var winterIngredients = ["pear", "orange", "cream", "lemon", "pomegranate", "port"];
 var ingredient;
+var tempThreshold = 283;
 
 $("#search").on("click", function (event) {
   event.preventDefault();
@@ -68,11 +69,14 @@ fetch(
 }
 
 function getCocktails(temperature) {
-  var ingredients;
-  if (Number(temperature) > 283) {
-    ingredients = hotSearch;
+  var ingredientA;
+  var ingredientB;
+  if (Number(temperature) > tempThreshold) {
+    var randHot = Math.floor(Math.random() * hotIngredients.length);
+    ingredientA = hotIngredients[randHot];
   } else {
-    ingredients = coldSearch;
+    var randCold = Math.floor(Math.random() * coldIngredients.length);
+    ingredientA = coldIngredients[randCold];
   }
   $.ajax({
     method: "GET",
