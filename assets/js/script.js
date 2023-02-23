@@ -4,6 +4,10 @@ var searchInput = $("#ing-search");
 var searchButEl = $("#search");
 var todayCocktail = $("#today-cocktail");
 var ingredient;
+
+var dialog = $("#dialog");
+
+
 // DATA
 // add NYC latitude and longitude
 var latNYC = "40.7129";
@@ -154,6 +158,7 @@ function displayCocktailDay(data) {
     
 }
 
+
 function displayResults(data) {
     console.log('hello from displayResults')
   // loop through all entries in cocktail data
@@ -229,3 +234,22 @@ $("#search-form").on("submit", function (event) {
 
 // INITIALIZATIONS
 checkLocation();
+
+//Pop-Up-Message
+$( function() {
+  $( "#dialog" ).dialog({
+    autoOpen: false,
+    show: {
+      effect: "blind",
+      duration: 1000
+    },
+    hide: {
+      effect: "explode",
+      duration: 1000
+    }
+  });
+
+  $( "#opener" ).on( "click", function() {
+    $( "#dialog" ).dialog( "open" );
+  });
+} );
