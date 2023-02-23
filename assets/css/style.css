@@ -33,3 +33,7 @@ body {
   display: flex;
   background-color: rgb(153, 61, 61);
 }
+
+.dialog{
+  border:3px;
+}
