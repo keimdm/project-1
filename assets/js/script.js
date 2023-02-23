@@ -203,6 +203,7 @@ $("#search-form").on("submit", function (event) {
 // INITIALIZATIONS
 checkLocation();
 
+//Pop-Up-Message
 $( function() {
   $( "#dialog" ).dialog({
     autoOpen: false,
