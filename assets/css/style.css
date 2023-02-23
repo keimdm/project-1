@@ -28,10 +28,13 @@ body {
 }
 .title {
   display: flex;
-  margin-left: 600px;
+  justify-content: center;
+  text-align: center;
 }
 .header {
   display: flex;
   background-color: rgba(153, 61, 61);
   text-align: center;
+  color: white;
+  width: 100%;
 }
