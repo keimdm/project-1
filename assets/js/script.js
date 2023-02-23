@@ -2,41 +2,19 @@
 var cocktailList = $("#cocktail-list");
 var searchInput = $("#ing-search");
 var searchButEl = $("#search");
+var ingredient;
+
+// DATA
+// add NYC latitude and longitude
+var latNYC = "40.7129";
+var lonNYC = "-74.0060";
 var hotIngredients = ["mint", "lime", "lemon", "orange", "coconut", "pineapple", "watermelon", "mango", "cucumber", "grapefruit"];
 var coldIngredients = ["chocolate", "maple", "cranberry", "coffee", "honey", "port", "cream", "apple", "pear"];
 var springIngredients = ["strawberry", "lemon", "lime", "pineapple", "cherries", "peach", "kiwi", "oranges", "apricot", "melon"];
 var summerIngredients = ["bananas", "blackberries", "blueberries", "raspberries", "tomato", "watermelon", "lemon", "lime", "mango"];
 var fallIngredients = ["apple", "cider", "caramel", "cinnamon", "ginger"];
 var winterIngredients = ["pear", "orange", "cream", "lemon", "pomegranate", "port"];
-var ingredient;
-var tempThreshold = 283;
-
-$("#search").on("click", function (event) {
-  event.preventDefault();
-  ingredient = searchInput.val();
-  console.log(ingredient);
-  $.ajax({
-    method: "GET",
-    //Only cocktails containing all listed ingredients will be returned.
-    url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingredient,
-    headers: { "X-Api-Key": "FY5H8mVkxpSV+RQ0ub8Cbg==HmezQ5tZdVLtj20h" },
-    contentType: "application/json",
-    success: function (result) {
-      console.log(result);
-      cocktailList.empty();
-      displayResults(result);
-    },
-    error: function ajaxError(jqXHR) {
-      console.error("Error: ", jqXHR.responseText);
-    },
-  });
-});
-
-// DATA
-// add NYC latitude and longitude
-var latNYC = "40.7129";
-var lonNYC = "-74.0060";
-
+var tempThreshold = 283
 
 // FUNCTIONS
 function getWeather() {
@@ -105,7 +83,7 @@ function getCocktails(temperature) {
     contentType: "application/json",
     success: function (result) {
       console.log(result);
-      //if no cocktail is found, search again with only one ingredient
+      //if no cocktail is found combining the two ingredients, search again with only one ingredient
       if (result.length === 0) {
         $.ajax({
             method: "GET",
@@ -132,7 +110,7 @@ function getCocktails(temperature) {
 }
 
 function displayCocktailDay(data) {
-    
+
 }
 
 function displayResults(data) {
@@ -162,6 +140,26 @@ function displayResults(data) {
 }
 
 // USER INTERACTIONS
+$("#search").on("click", function (event) {
+    event.preventDefault();
+    ingredient = searchInput.val();
+    console.log(ingredient);
+    $.ajax({
+      method: "GET",
+      //Only cocktails containing all listed ingredients will be returned.
+      url: "https://api.api-ninjas.com/v1/cocktail?ingredients=" + ingredient,
+      headers: { "X-Api-Key": "FY5H8mVkxpSV+RQ0ub8Cbg==HmezQ5tZdVLtj20h" },
+      contentType: "application/json",
+      success: function (result) {
+        console.log(result);
+        cocktailList.empty();
+        displayResults(result);
+      },
+      error: function ajaxError(jqXHR) {
+        console.error("Error: ", jqXHR.responseText);
+      },
+    });
+  });
 
 // INITIALIZATIONS
 getWeather(latNYC, lonNYC);
