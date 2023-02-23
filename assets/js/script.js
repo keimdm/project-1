@@ -245,6 +245,7 @@ addIngredientButton.on("click", function (event) {
 });
 function addIngredient(ingredient) {
   const ingredientList = [];
+  // ingredientList[ingredientList.length] = ingredient;
   // let newArray = [].concat(ingredientList);
   // console.log(newArray)
   ingredientList.push(ingredient);
