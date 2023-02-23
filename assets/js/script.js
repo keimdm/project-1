@@ -140,6 +140,7 @@ function displayResults(data) {
     var newInstructions = $(document.createElement("p"));
     // set element properties
     newTitle.text(data[i].name);
+    newCard.addClass("recipe");
     // loop through all ingredient entries and add them to new Ingredients list
     for (j = 0; j < data[i].ingredients.length; j++) {
       newItem = $(document.createElement("li"));
