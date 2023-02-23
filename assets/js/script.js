@@ -2,6 +2,7 @@
 var cocktailList = $("#cocktail-list");
 var searchInput = $("#ing-search");
 var searchButEl = $("#search");
+var todayCocktail = $("#today-cocktail");
 var ingredient;
 
 // DATA
@@ -110,7 +111,16 @@ function getCocktails(temperature) {
 }
 
 function displayCocktailDay(data) {
-
+    var cocktailRand = Math.floor(Math.random() * data.length);
+    var cocktailSelected = data[cocktailRand];
+    todayCocktail.children().eq(1).text(cocktailSelected.name);
+    todayCocktail.children().eq(2).empty();
+    for (i = 0; i < cocktailSelected.ingredients.length; i++) {
+        var newLI = $(document.createElement("li"));
+        newLI.text(cocktailSelected.ingredients[i]);
+        todayCocktail.children().eq(2).append(newLI);
+    }
+    todayCocktail.children().eq(3).text(cocktailSelected.instructions);
 }
 
 function displayResults(data) {
