@@ -25,10 +25,42 @@
     0 0 0.2em rgb(17, 0, 255);
 }
 
-#today-cocktail {
+#today-cocktail{
   border-style: solid;
-  border-color: purple;
+  border-color: white;
   padding: 3%;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: 25px;
+  background-color: rgb(185, 104, 104);
+  color: white;
+}
+
+.result {
+  border-style: solid;
+  border-color: white;
+  padding: 3%;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: 25px;
+  background-color: rgb(185, 104, 104);
+  color: white;
+  margin-bottom: 1.0em;
+}
+
+#today-cocktail img {
+display: block; margin: auto;
+margin-bottom: .50em;
+border: 1px solid;
+}
+
+#today-cocktail h1, .result h1{
+  text-align: center;
+  font-weight: bolder;
+  text-shadow: -1px 2px 0 #000,
+				  2px 1px 0 #000,
+				 2px -1px 0 #000,
+				-1px -1px 0 #000;
 }
 #form {
   border-style: solid;
