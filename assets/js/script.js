@@ -277,6 +277,23 @@ $("#search").on("click", function (event) {
   }
 });
 
+$("#search-form").on("submit", function (event) {
+  event.preventDefault();
+  ingredient = searchInput.val();
+
+  for (let i = 0; i < ingredientList.length; i++) {
+    if (ingredient === "") {
+      ingredient = ingredientList[i];
+    } else {
+      ingredient = ingredient + ", " + ingredientList[i];
+    }
+  }
+  console.log(ingredient);
+  if (ingredient !== "") {
+    searchCocktails(ingredient);
+  }
+});
+
 addIngredientButton.on("click", function (event) {
   event.preventDefault();
   ingredient = searchInput.val();
