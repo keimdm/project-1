@@ -48,7 +48,7 @@
   margin-bottom: 1.0em;
 }
 
-#today-cocktail img, .result img {
+#today-cocktail img {
 display: block; margin: auto;
 margin-bottom: .50em;
 border: 1px solid;

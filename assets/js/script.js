@@ -196,14 +196,14 @@ function saveUserFav(data) {
 function displayCocktailDay(data) {
   var cocktailRand = Math.floor(Math.random() * data.length);
   var cocktailSelected = data[cocktailRand];
-  todayCocktail.children().eq(1).text(cocktailSelected.name);
-  todayCocktail.children().eq(2).empty();
+  todayCocktail.children().eq(2).text(cocktailSelected.name);
+  todayCocktail.children().eq(3).empty();
   for (i = 0; i < cocktailSelected.ingredients.length; i++) {
     var newLI = $(document.createElement("li"));
     newLI.text(cocktailSelected.ingredients[i]);
-    todayCocktail.children().eq(2).append(newLI);
+    todayCocktail.children().eq(3).append(newLI);
   }
-  todayCocktail.children().eq(3).text(cocktailSelected.instructions);
+  todayCocktail.children().eq(4).text(cocktailSelected.instructions);
 }
 
 function displayResults(data) {
@@ -219,7 +219,7 @@ function displayResults(data) {
 
     // set element properties
     newTitle.text(data[i].name);
-    newCard.addClass("result")
+    newCard.addClass("result");
     saveButton.text("save");
     saveButton.click(function (event) {
       saveUserFav(data);
