@@ -88,8 +88,19 @@ body {
 
 #add-ingredient{
   background-color: rgb(153, 61, 61);
-  border-width: 3px;
+  border:0px;
   font-size: 15px;
   padding-bottom: 2%;
   color: white;
+  border-radius:7px ;
+
+}
+#clear{
+  background-color: rgb(153, 61, 61);
+  border:0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius:7px ;
+  
 }
