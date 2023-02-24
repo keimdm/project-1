@@ -467,7 +467,20 @@ function makeHaiku() {
             }
         }
     }
-    console.log(haikuStructure);
+    var finishedPoem = ["", "", ""];
+    for (i = 0; i < haikuStructure.length; i++) {
+        for (j = 0; j < haikuStructure[i].words.length; j++) {
+            var nextWord = haikuStructure[i].words[j];
+            if (commonIngredients.includes(nextWord) && j !== haikuStructure[i].words.length - 1) {
+                nextWord = nextWord + ",";
+            }
+            finishedPoem[i] = finishedPoem[i] + " " + nextWord;
+        }
+        if (i !== 2) {
+            finishedPoem[i] = finishedPoem[i] + ",";
+        }
+    }
+    console.log(finishedPoem);
 }
 
 function displayResults(data) {
