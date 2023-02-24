@@ -223,3 +223,16 @@ body {
     background-color: rgb(153, 61, 61);
   }
 }
+.cardButtons {
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(207, 255, 253);
+  padding: 0.5em;
+  text-align: right;
+  text-justify: auto;
+  text-decoration: underline;
+  display: inline-block;
+  font-size: 17px;
+  justify-self: right;
+  margin-left: 4em;
+}
