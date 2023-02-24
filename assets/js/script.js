@@ -237,6 +237,7 @@ function displayResults(data) {
     newCard.append(newInstructions);
     newCard.append(saveButton);
     // append card onto cocktail list
+    todayCocktail.hide();
     cocktailList.append(newCard);
   }
 }
