@@ -36,6 +36,11 @@
   color: white;
 }
 
+#display-list {
+  margin-bottom: 2em;
+  margin-top: -1em;
+}
+
 .result {
   border-style: solid;
   border-color: white;
@@ -70,8 +75,8 @@
 }
 
 #search {
-  background-color:rgb(185, 104, 104);
-  border:0px;
+  background-color: rgb(185, 104, 104);
+  border: 0px;
   font-size: 15px;
   color: white;
   border-radius: 5px;
@@ -88,7 +93,7 @@ body {
 }
 
 .buttonContainer {
-  margin-left: 5px ;
+  margin-left: 5px;
   margin-top: -3.5rem;
 }
 #cocktail-list {
@@ -218,13 +223,13 @@ body {
     margin-top: 7%;
   }
 
-#clear:hover {
-  background-color: rgb(153, 61, 61);
-}
-#add-ingredient:hover {
-  background-color: rgb(153, 61, 61);
-}
-#search:hover {
-  background-color: rgb(153, 61, 61);
-}
+  #clear:hover {
+    background-color: rgb(153, 61, 61);
+  }
+  #add-ingredient:hover {
+    background-color: rgb(153, 61, 61);
+  }
+  #search:hover {
+    background-color: rgb(153, 61, 61);
+  }
 }
