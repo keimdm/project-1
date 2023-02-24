@@ -115,6 +115,7 @@ body {
     color: white;
   }
 
+  /* Create custom logo */
   #logo {
     display: flex;
     height: 100%;
@@ -122,6 +123,8 @@ body {
     align-self: center;
     border: white 1px solid;
   }
+
+  /* Add custom Title/App Name */
   .title {
     display: flex;
     margin: 0.6em;
@@ -144,6 +147,7 @@ body {
     color: white;
   }
 
+  /* Style body where recipes are displayed */
   .result {
     border-style: solid;
     border-color: white;
@@ -177,6 +181,7 @@ body {
     border-width: 0 5px 5px 0;
   }
 
+  /* Create search button */
   #search {
     background-color: rgb(185, 104, 104);
     border: 0px;
@@ -196,6 +201,7 @@ body {
     background-color: rgb(246, 215, 176);
   }
 
+  /* Create add-ingredient button */
   #add-ingredient {
     background-color: rgb(185, 104, 104);
     border: 0px;
@@ -204,6 +210,8 @@ body {
     color: white;
     border-radius: 5px;
   }
+
+  /* Create clear button */
   #clear {
     background-color: rgb(185, 104, 104);
     border: 0px;
@@ -243,6 +251,8 @@ body {
   margin-left: 4em;
 }
 
+/* Contain all buttons on the page */
 .buttonContainer {
   margin-left: 5px;
+  margin-top: -5rem;
 }
