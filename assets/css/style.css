@@ -219,13 +219,16 @@ body {
     margin-top: 7%;
   }
 
-  #clear:hover {
+  #clear:hover{
     background-color: rgb(153, 61, 61);
   }
   #add-ingredient:hover {
     background-color: rgb(153, 61, 61);
   }
   #search:hover {
+    background-color: rgb(153, 61, 61);
+  }
+  #help-button:hover {
     background-color: rgb(153, 61, 61);
   }
 }
@@ -241,4 +244,13 @@ body {
   font-size: 17px;
   justify-self: right;
   margin-left: 4em;
+}
+
+#help-button {
+  background-color: rgb(185, 104, 104);
+  border: 0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 5px;
 }
