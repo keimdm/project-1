@@ -344,9 +344,11 @@ function addEntry(word) {
     console.log(word);
     var syllables = 0;
     var type = "";
-    syllables = commonIngredientsDict[commonIngredients.indexOf(word)][1];
-    type = "noun";
-    if (!syllables) {
+    try {
+        syllables = commonIngredientsDict[commonIngredients.indexOf(word)][1];
+        type = "noun";
+    }
+    catch {
         syllables = monthsDict[months.indexOf(word)][1];
         type = "month";
     }
