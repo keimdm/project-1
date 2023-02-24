@@ -254,3 +254,17 @@ body {
   padding: 0.5em;
   color: white;
 }
+
+.ui-dialog-titlebar-close {
+  background: url(../images/X.png);
+  background-size: contain;
+  background-repeat: none;
+  height: 25px;
+  width: 25px;
+  float: right;
+  margin-right: 1.5em;
+  margin-bottom: -2em;
+  position: relative;
+  top: 50px;
+  border: none;
+}
