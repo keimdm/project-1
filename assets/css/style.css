@@ -129,7 +129,7 @@ body {
   border-radius: 5px;
 }
 
-#clear:hover {
+#clear:hover{
   background-color: rgb(153, 61, 61);
 }
 #add-ingredient:hover {
@@ -138,6 +138,9 @@ body {
 #search:hover {
   background-color: rgb(153, 61, 61);
 }
+  #help-button:hover {
+    background-color: rgb(153, 61, 61);
+  }
 
 .cardButtons {
   border: none;
@@ -213,4 +216,13 @@ body {
     margin: 0px -50%;
     margin-top: 7%;
   }
+}
+
+#help-button {
+  background-color: rgb(185, 104, 104);
+  border: 0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 5px;
 }
