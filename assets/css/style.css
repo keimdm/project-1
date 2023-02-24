@@ -69,11 +69,11 @@ border: 1px solid;
 }
 
 #search {
-  background-color: rgb(153, 61, 61);
+  background-color: rgb(185, 104, 104);
   border-width: 3px;
   font-size: 15px;
   padding-bottom: 2%;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 #results {
@@ -85,4 +85,5 @@ border: 1px solid;
 body {
   background-color: rgb(246, 215, 176);
 }
+
 
