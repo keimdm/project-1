@@ -532,6 +532,7 @@ function displayHaiku(text) {
   for (i = 0; i < text.length; i++) {
     var newP = $(document.createElement("p"));
     newP.text(text[i]);
+    newP.addClass("newP");
     dialog.append(newP);
   }
 }
