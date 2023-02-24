@@ -90,6 +90,14 @@ body {
   margin-top: 5%;
 }
 
+#opener {
+  background: url("../images/info.png");
+  background-size: contain;
+  background-repeat: none;
+  height: 25px;
+  color: blue;
+}
+
 /* Desktop Styles */
 @media (min-width: 1500px) {
   .header {
