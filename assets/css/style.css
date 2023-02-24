@@ -86,3 +86,10 @@ body {
   background-color: rgb(246, 215, 176);
 }
 
+#add-ingredient{
+  background-color: rgb(153, 61, 61);
+  border-width: 3px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+}
