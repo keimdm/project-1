@@ -90,6 +90,7 @@ body {
 
 .buttonContainer{
   margin-left: 5px ;
+  margin-top: -3.5rem;
 }
 
 
@@ -137,6 +138,7 @@ body {
   font-size: 15px;
   color: white;
   border-radius:5px ;
+  margin-top: 10px;
 
 }
 #clear{
