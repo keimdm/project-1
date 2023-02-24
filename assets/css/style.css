@@ -242,3 +242,7 @@ body {
   justify-self: right;
   margin-left: 4em;
 }
+
+.buttonContainer {
+  margin-left: 5px;
+}
