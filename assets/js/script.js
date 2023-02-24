@@ -10,11 +10,8 @@ var dialog = $("#dialog");
 
 // DATA
 // add NYC latitude and longitude
-<<<<<<< HEAD
-=======
 var ingredientList = [];
 var tempWord;
->>>>>>> 2b92294427cd7078cf972e8ab7fe6686faa1dee1
 var latNYC = "40.7129";
 var lonNYC = "-74.0060";
 var hotIngredients = [
@@ -346,9 +343,6 @@ function displayCocktailDay(data) {
     newLI.text(cocktailSelected.ingredients[i]);
     todayCocktail.children().eq(2).append(newLI);
   }
-<<<<<<< HEAD
-  todayCocktail.children().eq(3).text(cocktailSelected.instructions);
-=======
   todayCocktail.children().eq(4).text(cocktailSelected.instructions);
   makeHaikuList(cocktailSelected);
 }
@@ -553,7 +547,6 @@ function displayHaiku(text) {
     newP.text(text[i]);
     dialog.append(newP);
   }
->>>>>>> 2b92294427cd7078cf972e8ab7fe6686faa1dee1
 }
 
 function displayResults(data) {
@@ -569,13 +562,9 @@ function displayResults(data) {
 
     // set element properties
     newTitle.text(data[i].name);
-<<<<<<< HEAD
-    saveButton.text("save");
-=======
     newCard.addClass("result");
     saveButton.text("add to favorites +");
     saveButton.addClass("cardButtons");
->>>>>>> 2b92294427cd7078cf972e8ab7fe6686faa1dee1
     saveButton.click(function (event) {
       saveUserFav(data);
     });
