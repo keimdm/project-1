@@ -46,7 +46,8 @@
   background-color: rgb(185, 104, 104);
   color: white;
   margin-bottom: 1em;
-  margin: 0px -41% 5% -41%;
+  /* margin: 0px -41% 5% -41%; */
+  flex-basis: 50%;
 }
 
 #today-cocktail img {
@@ -87,6 +88,12 @@ body {
   background-color: rgb(246, 215, 176);
 }
 
-#card-container {
-  margin-left: 30%;
+#cocktail-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px -50%;
 }
+
+/* #card-container {
+  margin-left: 30%;
+} */
