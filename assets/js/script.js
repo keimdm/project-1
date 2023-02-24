@@ -219,7 +219,8 @@ function displayResults(data) {
     // set element properties
     newTitle.text(data[i].name);
     newCard.addClass("result");
-    saveButton.text("save");
+    saveButton.text("add to favorites +");
+    saveButton.addClass("cardButtons");
     saveButton.click(function (event) {
       saveUserFav(data);
     });
