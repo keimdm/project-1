@@ -6,6 +6,7 @@
   color: white;
 }
 
+/* Create custom logo */
 #logo {
   display: flex;
   height: 100%;
@@ -13,6 +14,8 @@
   align-self: center;
   border: white 1px solid;
 }
+
+/* Add custom Title/App Name */
 .title {
   display: flex;
   margin: 0.6em;
@@ -41,6 +44,7 @@
   margin-left: 0.5em;
 }
 
+/* Style body where recipes are displayed */
 .result {
   border-style: solid;
   border-color: white;
@@ -73,6 +77,7 @@
   border-width: 0 5px 5px 0;
 }
 
+/* Create search button */
 #search {
   background-color: rgb(185, 104, 104);
   border: 0px;
@@ -104,150 +109,61 @@ body {
   border: none;
 }
 
+/* Create add-ingredient button */
+#add-ingredient {
+  background-color: rgb(185, 104, 104);
+  border: 0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Create clear button */
+#clear {
+  background-color: rgb(185, 104, 104);
+  border: 0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 5px;
+}
+
+#clear:hover {
+  background-color: rgb(153, 61, 61);
+}
+#add-ingredient:hover {
+  background-color: rgb(153, 61, 61);
+}
+#search:hover {
+  background-color: rgb(153, 61, 61);
+}
+
+.cardButtons {
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(207, 255, 253);
+  padding: 0.5em;
+  text-align: right;
+  text-justify: auto;
+  text-decoration: underline;
+  display: inline-block;
+  font-size: 17px;
+  justify-self: right;
+  margin-left: 4em;
+}
+
 /* Desktop Styles */
 @media (min-width: 1500px) {
-  .header {
-    display: flex;
-    background-color: rgb(153, 61, 61);
-    text-align: left;
-    /* border: red solid 5px; */
-    width: 100%;
-    color: white;
-  }
-
-  /* Create custom logo */
-  #logo {
-    display: flex;
-    height: 100%;
-    margin: 5px;
-    align-self: center;
-    border: white 1px solid;
-  }
-
-  /* Add custom Title/App Name */
-  .title {
-    display: flex;
-    margin: 0.6em;
-    margin-left: 0.3em;
-    margin-top: 0.8em;
-    font-family: "Caveat", cursive;
-    text-decoration: dotted;
-    text-shadow: 1px 1px 2px red, 0 0 1em rgb(255, 0, 208),
-      0 0 0.2em rgb(17, 0, 255);
-  }
-
-  #today-cocktail {
-    border-style: solid;
-    border-color: white;
-    padding: 3%;
-    margin-left: 1em;
-    margin-right: 1em;
-    border-radius: 25px;
-    background-color: rgb(185, 104, 104);
-    color: white;
-  }
-
-  /* Style body where recipes are displayed */
   .result {
-    border-style: solid;
-    border-color: white;
-    padding: 3%;
     margin-left: 4em;
-    margin-right: 1em;
-    border-radius: 25px;
-    background-color: rgb(185, 104, 104);
-    color: white;
-    margin-bottom: 1em;
     flex-basis: 35%;
   }
 
-  #today-cocktail img {
-    display: block;
-    margin: auto;
-    margin-bottom: 0.5em;
-    border: 1px solid;
-  }
-
-  #today-cocktail h1,
-  .result h1 {
-    text-align: center;
-    font-weight: bolder;
-    text-shadow: -1px 2px 0 #000, 2px 1px 0 #000, 2px -1px 0 #000,
-      -1px -1px 0 #000;
-  }
-  #form {
-    border-style: solid;
-    border-color: black;
-    border-width: 0 5px 5px 0;
-  }
-
-  /* Create search button */
-  #search {
-    background-color: rgb(185, 104, 104);
-    border: 0px;
-    font-size: 15px;
-    padding-bottom: 2%;
-    color: white;
-    border-radius: 5px;
-  }
-
-  #results {
-    border-style: solid;
-    border-color: purple;
-    padding: 3%;
-  }
-
-  body {
-    background-color: rgb(246, 215, 176);
-  }
-
-  /* Create add-ingredient button */
-  #add-ingredient {
-    background-color: rgb(185, 104, 104);
-    border: 0px;
-    font-size: 15px;
-    padding-bottom: 2%;
-    color: white;
-    border-radius: 5px;
-  }
-
-  /* Create clear button */
-  #clear {
-    background-color: rgb(185, 104, 104);
-    border: 0px;
-    font-size: 15px;
-    padding-bottom: 2%;
-    color: white;
-    border-radius: 5px;
-  }
   #cocktail-list {
     display: flex;
     flex-wrap: wrap;
     margin: 0px -50%;
     margin-top: 7%;
-  }
-
-  #clear:hover {
-    background-color: rgb(153, 61, 61);
-  }
-  #add-ingredient:hover {
-    background-color: rgb(153, 61, 61);
-  }
-  #search:hover {
-    background-color: rgb(153, 61, 61);
-  }
-
-  .cardButtons {
-    border: none;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(207, 255, 253);
-    padding: 0.5em;
-    text-align: right;
-    text-justify: auto;
-    text-decoration: underline;
-    display: inline-block;
-    font-size: 17px;
-    justify-self: right;
-    margin-left: 4em;
   }
 }
