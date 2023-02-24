@@ -102,6 +102,7 @@ body {
   background-repeat: none;
   height: 25px;
   color: blue;
+  border: none;
 }
 
 /* Desktop Styles */
@@ -240,5 +241,16 @@ body {
   display: inline-block;
   font-size: 17px;
   justify-self: right;
-  margin-left: 4em;
+  float: right;
+}
+
+#dialog {
+  background-color: rgb(153, 61, 61);
+  border: white 2px solid;
+  border-radius: 25px;
+}
+
+.newP {
+  padding: 0.5em;
+  color: white;
 }
