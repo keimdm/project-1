@@ -189,7 +189,8 @@ body {
   top: 50px;
   right: 10px;
   border: none;
-  font-size: 0%;
+  content: "";
+  /* font-size: 0%; */
 }
 
 /* Contain all buttons on the page */

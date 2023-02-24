@@ -666,6 +666,7 @@ $(function () {
       effect: "explode",
       duration: 1000,
     },
+    closeText: "",
   });
 
   $("#opener").on("click", function () {
