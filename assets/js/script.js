@@ -266,7 +266,9 @@ function getCocktails(temperature) {
   }
   var searchString = ingredientA + ", " + ingredientB;
   haikuWords.push(ingredientA);
+  addEntry(ingredientA);
   haikuWords.push(dayjs().format("MMMM"));
+  addEntry(dayjs().format("MMMM"));
   console.log(searchString);
   $.ajax({
     method: "GET",
@@ -294,6 +296,7 @@ function getCocktails(temperature) {
         });
       } else {
         haikuWords.push(ingredientB);
+        addEntry(ingredientB);
         displayCocktailDay(result);
       }
     },
@@ -337,22 +340,47 @@ function displayCocktailDay(data) {
   makeHaikuList(cocktailSelected);
 }
 
-function makeHaikuList(data) {
+function addEntry(word) {
+    console.log(word);
+    var syllables = 0;
+    var type = "";
+    syllables = commonIngredientsDict[commonIngredients.indexOf(word)][1];
+    type = "noun";
+    if (!syllables) {
+        syllables = monthsDict[months.indexOf(word)][1];
+        type = "month";
+    }
+    var newEntry = {
+        haikuWord: word,
+        wordSyllables: syllables,
+        wordType: type  
+    };
+    haikuDictionary.push(newEntry);
+}
+
+function setUpLists() {
     for (i = 0; i < commonIngredientsDict.length; i++) {
         commonIngredients.push(commonIngredientsDict[i][0]);
     }
     for (i = 0; i < monthsDict.length; i++) {
         months.push(monthsDict[i][0]);
     }
+    console.log(commonIngredients);
+    console.log(months);
+}
+
+function makeHaikuList(data) {
     for (i = 0; i < data.ingredients.length; i++) {
         var ingredientLine = data.ingredients[i].split(" ");
         for (j = 0; j < ingredientLine.length; j++) {
             var word = ingredientLine[j].toLowerCase();
             if (commonIngredients.includes(word) && haikuWords.length < 8) {
                 haikuWords.push(word);
+                addEntry(word);
             }
             if (commonIngredients.includes(word.slice(0, word.length - 1)) && haikuWords.length < 8) {
                 haikuWords.push(word.slice(0, word.length - 1));
+                addEntry(word.slice(0, word.length - 1));
             }
         }
     }
@@ -364,6 +392,7 @@ function makeHaikuList(data) {
         }
     }
     console.log(haikuWords);
+    console.log(haikuDictionary);
     makeHaiku();
 }
 
@@ -406,6 +435,7 @@ function displayResults(data) {
     newCard.append(newInstructions);
     newCard.append(saveButton);
     // append card onto cocktail list
+    todayCocktail.hide();
     cocktailList.append(newCard);
   }
 }
@@ -486,6 +516,7 @@ $("#clear").on("click", function () {
 });
 
 // INITIALIZATIONS
+setUpLists();
 checkLocation();
 
 //Pop-Up-Message
