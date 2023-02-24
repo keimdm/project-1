@@ -70,11 +70,12 @@
 }
 
 #search {
-  background-color: rgb(153, 61, 61);
-  border-width: 3px;
+  background-color: rgb(185, 104, 104);
+  border: 0px;
   font-size: 15px;
   padding-bottom: 2%;
   color: white;
+  border-radius: 5px;
 }
 
 #results {
@@ -87,8 +88,34 @@ body {
   background-color: rgb(246, 215, 176);
 }
 
+#add-ingredient {
+  background-color: rgb(185, 104, 104);
+  border: 0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 5px;
+}
+#clear {
+  background-color: rgb(185, 104, 104);
+  border: 0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 5px;
+}
 #cocktail-list {
   display: flex;
   flex-wrap: wrap;
   margin: 0px -50%;
+}
+
+#clear:hover {
+  background-color: rgb(153, 61, 61);
+}
+#add-ingredient:hover {
+  background-color: rgb(153, 61, 61);
+}
+#search:hover {
+  background-color: rgb(153, 61, 61);
 }
