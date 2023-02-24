@@ -149,9 +149,23 @@ var commonIngredients = [
     "maraschino",
     "creme",
     "pineapple",
-    "sour"
-]
+];
+var months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
 var tempThreshold = 283;
+var haikuWords = [];
 
 // FUNCTIONS
 function checkLocation() {
@@ -220,6 +234,8 @@ function getCocktails(temperature) {
     ingredientB = fallIngredients[randFall];
   }
   var searchString = ingredientA + ", " + ingredientB;
+  haikuWords.push(ingredientA);
+  haikuWords.push(dayjs().format("MMMM"));
   console.log(searchString);
   $.ajax({
     method: "GET",
@@ -246,6 +262,7 @@ function getCocktails(temperature) {
           },
         });
       } else {
+        haikuWords.push(ingredientB);
         displayCocktailDay(result);
       }
     },
