@@ -46,6 +46,7 @@
   background-color: rgb(185, 104, 104);
   color: white;
   margin-bottom: 1em;
+  margin: 0px -41% 5% -41%;
 }
 
 #today-cocktail img {
@@ -98,4 +99,7 @@ body {
   font-size: 17px;
   justify-self: right;
   margin-left: 4em;
+}
+#card-container {
+  margin-left: 30%;
 }
