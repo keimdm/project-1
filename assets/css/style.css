@@ -184,11 +184,12 @@ body {
   height: 25px;
   width: 25px;
   float: right;
-  margin-right: 1.5em;
   margin-bottom: -2em;
   position: relative;
   top: 50px;
+  right: 10px;
   border: none;
+  font-size: 0%;
 }
 
 /* Contain all buttons on the page */
