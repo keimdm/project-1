@@ -247,7 +247,7 @@ body {
   display: inline-block;
   font-size: 17px;
   justify-self: right;
-  margin-left: 4em;
+  float: right;
 }
 
 #dialog {
