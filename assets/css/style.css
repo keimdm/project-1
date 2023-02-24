@@ -70,11 +70,12 @@
 }
 
 #search {
-  background-color: rgb(153, 61, 61);
-  border-width: 3px;
+  background-color:rgb(185, 104, 104);
+  border:0px;
   font-size: 15px;
   padding-bottom: 2%;
   color: white;
+  border-radius: 5px;
 }
 
 #results {
@@ -87,19 +88,65 @@ body {
   background-color: rgb(246, 215, 176);
 }
 
-.cardButtons {
-  border: none;
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(207, 255, 253);
-  padding: 0.5em;
-  text-align: right;
-  text-justify: auto;
-  text-decoration: underline;
-  display: inline-block;
-  font-size: 17px;
-  justify-self: right;
-  margin-left: 4em;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#add-ingredient{
+  background-color: rgb(185, 104, 104);
+  border:0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius:5px ;
+
 }
-#card-container {
-  margin-left: 30%;
+#clear{
+  background-color:rgb(185, 104, 104); 
+  border:0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius:5px ;
+  
 }
+
+#clear:hover {background-color: rgb(153, 61, 61)}
+#add-ingredient:hover{background-color: rgb(153, 61, 61)}
+#search:hover {background-color: rgb(153, 61, 61)}

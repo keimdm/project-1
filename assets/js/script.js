@@ -73,7 +73,6 @@ var commonIngredientsDict = [
     ["orange", 2],
     ["cream", 1],
     ["lemon", 2],
-    ["pomegranate", 4],
     ["port", 1],
     ["banana", 3],
     ["blackberries", 3],
@@ -83,7 +82,6 @@ var commonIngredientsDict = [
     ["raspberries", 3],
     ["raspberry", 3],
     ["tomato", 3],
-    ["watermelon", 4],
     ["lemon", 2],
     ["lime", 1],
     ["mango", 2],
@@ -109,7 +107,6 @@ var commonIngredientsDict = [
     ["orange", 2],
     ["coconut", 3],
     ["pineapple", 3],
-    ["watermelon", 4],
     ["mango", 2],
     ["cucumber", 3],
     ["grapefruit", 2],
@@ -131,11 +128,7 @@ var commonIngredientsDict = [
     ["vodka", 2],
     ["wine", 1],
     ["vermouth", 2],
-    ["spirits", 2],
-    ["spirit", 2],
-    ["liquor", 2],
     ["water", 2],
-    ["liqueur", 2],
     ["syrup", 2],
     ["juice", 1],
     ["bitters", 2],
@@ -148,7 +141,6 @@ var commonIngredientsDict = [
     ["grenadine", 3],
     ["zest", 1],
     ["cognac", 2],
-    ["maraschino", 4],
     ["creme", 1],
     ["pineapple", 3],
     ["tequila", 3],
@@ -265,10 +257,10 @@ function getCocktails(temperature) {
     ingredientB = fallIngredients[randFall];
   }
   var searchString = ingredientA + ", " + ingredientB;
-  haikuWords.push(ingredientA);
-  addEntry(ingredientA);
   haikuWords.push(dayjs().format("MMMM"));
   addEntry(dayjs().format("MMMM"));
+  haikuWords.push(ingredientA);
+  addEntry(ingredientA);
   console.log(searchString);
   $.ajax({
     method: "GET",
@@ -406,12 +398,53 @@ function makeHaiku() {
             if (Number(haikuStructure[randLine].syllables) + haikuDictionary[i].wordSyllables <= haikuStructure[randLine].max) {
                 haikuStructure[randLine].words.push(haikuDictionary[i].haikuWord);
                 haikuStructure[randLine].syllables = haikuStructure[randLine].syllables + haikuDictionary[i].wordSyllables;
+                if (months.includes(haikuDictionary[i].haikuWord)) {
+                    haikuDictionary.splice(i, 1);
+                }
             }
         }
         testDone = true;
         for (i = 0; i < haikuStructure.length; i++) {
             if (Number(haikuStructure[i].syllables) + 3 < haikuStructure[i].max) {
                 testDone = false;
+            }
+        }
+    }
+    console.log(haikuStructure);
+    for (i = 0; i < haikuStructure.length; i++) {
+        var monthCheck = false;
+        var monthIndex = -1;
+        for (j = 0; j < haikuStructure[i].words.length; j++) {
+            if (months.includes(haikuStructure[i].words[j])) {
+                monthCheck = true;
+                monthIndex = j;
+            }
+        }
+        if (monthCheck) {
+            var placeholder = haikuStructure[i].words[haikuStructure[i].words.length - 1];
+            haikuStructure[i].words[haikuStructure[i].words.length - 1] = haikuStructure[i].words[monthIndex];
+            haikuStructure[i].words[monthIndex] = placeholder;
+            var difference = haikuStructure[i].max - haikuStructure[i].syllables;
+            if (difference === 0) {
+                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in");
+            }
+            if (difference === 1) {
+                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in in");
+            }
+            if (difference === 2) {
+                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in in in");
+            }
+        }
+        else {
+            var difference2 = haikuStructure[i].max - haikuStructure[i].syllables;
+            if (difference2 === 1) {
+                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in");
+            }
+            if (difference2 === 2) {
+                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in in");
+            }
+            if (difference2 === 3) {
+                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in in in");
             }
         }
     }
