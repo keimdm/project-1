@@ -39,13 +39,9 @@
     <div>
       <ul id="display-list"></ul>
     </div>
-    <div class="buttonContainer">
-      <button id="add-ingredient">Add</button>
-      <button id="clear">Clear</button>
-      <button id="search">Search</button>
-    </div>
-   
-    
+    <button id="add-ingredient">Add</button>
+    <button id="clear">Clear</button>
+    <button id="search">Search</button>
     <div id="today-cocktail">
       <h1>Today's Cocktail</h1>
       <img
@@ -84,6 +80,104 @@
         <div id="cocktail-list"></div>
       </div>
     </div>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--Link to Skeleton-->
+        <link rel="stylesheet" href="./assets/css/normalize.css" />
+        <link rel="stylesheet" href="./assets/css/skeleton.css" />
+        <link
+          href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+        />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap"
+          rel="stylesheet"
+        />
+        <title>Breezy Cocktail</title>
+      </head>
+      <body>
+        <!--Add Header with title-->
+        <div class="header">
+          <img
+            id="logo"
+            src="./assets/images/Breezy Cocktail-logos.png"
+            alt="logo"
+            height="100"
+            width="100"
+          />
+          <h1 class="title">Breezy Cocktail</h1>
+        </div>
+        <form action="" id="search-form">
+          <input id="ing-search" type="text" placeholder="Ingredients" />
+        </form>
+        <div>
+          <ul id="display-list"></ul>
+        </div>
+        <div class="buttonContainer">
+          <button id="add-ingredient">Add</button>
+          <button id="clear">Clear</button>
+          <button id="search">Search</button>
+        </div>
+
+        <div id="today-cocktail">
+          <h1>Today's Cocktail</h1>
+          <img
+            src="./assets/images/cocktailbw.png"
+            alt="Cocktail Logo Grey"
+            height="100px"
+            width="100px"
+          />
+          <p>Cocktail Name</p>
+
+          <ul>
+            <li>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+              magnam!
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reprehenderit, magnam?
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
+              iste.
+            </li>
+          </ul>
+          <p>Cocktail Instructions</p>
+          <!--Cocktail Dialog-->
+          <div id="dialog" title="Cocktail">
+            <p>This cocktail is based on today weather</p>
+          </div>
+          <button id="opener"></button>
+        </div>
+
+        <!--Add list object or container of some kind with id recipe-list-->
+        <div class="container">
+          <div class="row">
+            <div id="cocktail-list"></div>
+          </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="./assets/js/script.js"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+          integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+          crossorigin="anonymous"
+        ></script>
+      </body>
+    </html>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

@@ -46,7 +46,6 @@
   background-color: rgb(185, 104, 104);
   color: white;
   margin-bottom: 1em;
-  margin: 0px -41% 5% -41%;
 }
 
 #today-cocktail img {
@@ -67,15 +66,14 @@
   border-style: solid;
   border-color: black;
   border-width: 0 5px 5px 0;
-  margin-top: 5em;
 }
 
 #search {
-  background-color:rgb(185, 104, 104);
-  border:0px;
+  background-color: rgb(185, 104, 104);
+  border: 0px;
   font-size: 15px;
+  padding-bottom: 2%;
   color: white;
-  border-radius: 5px;
 }
 
 #results {
@@ -88,10 +86,6 @@ body {
   background-color: rgb(246, 215, 176);
 }
 
-.buttonContainer {
-  margin-left: 5px ;
-  margin-top: -3.5rem;
-}
 #cocktail-list {
   margin-top: 5%;
 }
@@ -228,20 +222,4 @@ body {
   #search:hover {
     background-color: rgb(153, 61, 61);
   }
-
-#add-ingredient{
-  background-color: rgb(185, 104, 104);
-  border:0px;
-  font-size: 15px;
-  color: white;
-  border-radius:5px ;
-  margin-top: 10px;
-}
-
-#clear{
-  background-color:rgb(185, 104, 104); 
-  border:0px;
-  font-size: 15px;
-  color: white;
-  border-radius:5px ;
 }
