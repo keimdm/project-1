@@ -46,6 +46,7 @@
   background-color: rgb(185, 104, 104);
   color: white;
   margin-bottom: 1em;
+  margin: 0px -41% 5% -41%;
 }
 
 #today-cocktail img {
@@ -70,10 +71,11 @@
 }
 
 #search {
-  background-color: rgb(185, 104, 104);
-  border: 0px;
+  background-color:rgb(185, 104, 104);
+  border:0px;
   font-size: 15px;
   color: white;
+  border-radius: 5px;
 }
 
 #results {
@@ -86,31 +88,12 @@ body {
   background-color: rgb(246, 215, 176);
 }
 
-<<<<<<< HEAD
-.buttonContainer{
+.buttonContainer {
   margin-left: 5px ;
   margin-top: -3.5rem;
 }
-
-#add-ingredient{
-  background-color: rgb(185, 104, 104);
-  border:0px;
-  font-size: 15px;
-  color: white;
-  border-radius:5px ;
-  margin-top: 10px;
-}
-
-#clear{
-  background-color:rgb(185, 104, 104); 
-  border:0px;
-  font-size: 15px;
-  color: white;
-  border-radius:5px ;
-=======
 #cocktail-list {
   margin-top: 5%;
->>>>>>> 30e848297e8f905a9dc445da9069c1060e18472d
 }
 
 #opener {
@@ -245,4 +228,20 @@ body {
   #search:hover {
     background-color: rgb(153, 61, 61);
   }
+
+#add-ingredient{
+  background-color: rgb(185, 104, 104);
+  border:0px;
+  font-size: 15px;
+  color: white;
+  border-radius:5px ;
+  margin-top: 10px;
+}
+
+#clear{
+  background-color:rgb(185, 104, 104); 
+  border:0px;
+  font-size: 15px;
+  color: white;
+  border-radius:5px ;
 }
