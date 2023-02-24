@@ -100,15 +100,14 @@ body {
   color: white;
   border-radius:5px ;
   margin-top: 10px;
-
 }
+
 #clear{
   background-color:rgb(185, 104, 104); 
   border:0px;
   font-size: 15px;
   color: white;
   border-radius:5px ;
-  
 }
 
 #clear:hover {background-color: rgb(153, 61, 61)}
