@@ -248,3 +248,9 @@ body {
   justify-self: right;
   margin-left: 4em;
 }
+
+#dialog {
+  background-color: rgb(153, 61, 61);
+  border: white 2px solid;
+  border-radius: 25px;  
+}
