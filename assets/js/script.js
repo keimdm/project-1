@@ -323,14 +323,14 @@ function saveUserFav(data) {
 function displayCocktailDay(data) {
   var cocktailRand = Math.floor(Math.random() * data.length);
   var cocktailSelected = data[cocktailRand];
-  todayCocktail.children().eq(2).text(cocktailSelected.name);
-  todayCocktail.children().eq(3).empty();
+  todayCocktail.children().eq(3).text(cocktailSelected.name);
+  todayCocktail.children().eq(4).empty();
   for (i = 0; i < cocktailSelected.ingredients.length; i++) {
     var newLI = $(document.createElement("li"));
     newLI.text(cocktailSelected.ingredients[i]);
-    todayCocktail.children().eq(3).append(newLI);
+    todayCocktail.children().eq(4).append(newLI);
   }
-  todayCocktail.children().eq(4).text(cocktailSelected.instructions);
+  todayCocktail.children().eq(5).text(cocktailSelected.instructions);
   makeHaikuList(cocktailSelected);
 }
 

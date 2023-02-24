@@ -275,7 +275,8 @@ body {
   position: relative;
   top: 50px;
   border: none;
-  
+}
+
 /* Contain all buttons on the page */
 .buttonContainer {
   margin-left: 5px;
