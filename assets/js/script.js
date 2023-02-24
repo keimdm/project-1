@@ -131,7 +131,6 @@ var commonIngredientsDict = [
     ["vermouth", 2],
     ["water", 2],
     ["syrup", 2],
-    ["juice", 1],
     ["bitters", 2],
     ["sherry", 2],
     ["absinthe", 2],
@@ -449,7 +448,22 @@ function makeHaiku() {
                 }
             }
             if (difference2 === 2) {
-                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in in");
+                if (haikuStructure[i].words.length === 1) {
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "the " + tempWord);
+                }
+                else {
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and");
+                    haikuStructure[i].words.unshift("the")
+                }
+            }
+            if (difference2 === 3) {
+                if (haikuStructure[i].words.length === 1) {
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "the " + tempWord + ", " + tempWord);
+                }
+                else {
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and the");
+                    haikuStructure[i].words.unshift("the")
+                }
             }
         }
     }
