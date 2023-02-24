@@ -103,3 +103,12 @@ body {
 #card-container {
   margin-left: 30%;
 }
+
+#opener {
+  background-image: url(../images/info.png);
+  background-repeat: none;
+  background-size: fit;
+  width: 20px;
+  height: 50px;
+  color: blue;
+}
