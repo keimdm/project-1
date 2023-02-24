@@ -68,7 +68,7 @@ var winterIngredients = [
   "pomegranate",
   "port",
 ];
-var commonIngredients = [
+var commonIngredientsDict = [
     ["pear", 1],
     ["orange", 2],
     ["cream", 1],
@@ -151,22 +151,25 @@ var commonIngredients = [
     ["maraschino", 4],
     ["creme", 1],
     ["pineapple", 3],
-    ["tequila", 3]
+    ["tequila", 3],
+    ["mezcal", 2]
 ];
-var months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+var monthsDict = [
+    ["January", 4],
+    ["February", 4],
+    ["March", 1],
+    ["April", 2],
+    ["May", 1],
+    ["June", 1],
+    ["July", 2],
+    ["August", 2],
+    ["September", 3],
+    ["October", 3],
+    ["November", 3],
+    ["December", 3]
 ];
+var commonIngredients = [];
+var months = [];
 var tempThreshold = 283;
 var haikuWords = [];
 var haikuDictionary = [];
@@ -335,6 +338,12 @@ function displayCocktailDay(data) {
 }
 
 function makeHaikuList(data) {
+    for (i = 0; i < commonIngredientsDict.length; i++) {
+        commonIngredients.push(commonIngredientsDict[i][0]);
+    }
+    for (i = 0; i < monthsDict.length; i++) {
+        months.push(monthsDict[i][0]);
+    }
     for (i = 0; i < data.ingredients.length; i++) {
         var ingredientLine = data.ingredients[i].split(" ");
         for (j = 0; j < ingredientLine.length; j++) {
@@ -355,30 +364,7 @@ function makeHaikuList(data) {
         }
     }
     console.log(haikuWords);
-    makeDictionary();
-}
-
-function makeDictionary() {
-    for (i = 0; i < haikuWords.length; i++) {
-        fetch('https://wordsapiv1.p.rapidapi.com/words/%7Bword%7D', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err))
-        var type;
-        if (months.includes(haikuWords[i])) {
-            type = "month";
-        }
-        else {
-            type = "noun";
-        }
-        var newEntry = {
-            word: haikuWords[i],
-            syllables: wordSyllables,
-            wordType: type
-        };
-        haikuDictionary.push(newEntry);
-    }
-    console.log(haikuDictionary);
+    makeHaiku();
 }
 
 function makeHaiku() {
