@@ -40,14 +40,13 @@
   border-style: solid;
   border-color: white;
   padding: 3%;
-  margin-left: 1em;
+  margin-left: 4em;
   margin-right: 1em;
   border-radius: 25px;
   background-color: rgb(185, 104, 104);
   color: white;
   margin-bottom: 1em;
-  /* margin: 0px -41% 5% -41%; */
-  flex-basis: 50%;
+  flex-basis: 35%;
 }
 
 #today-cocktail img {
@@ -95,5 +94,5 @@ body {
 }
 
 /* #card-container {
-  margin-left: 30%;
-} */
+    margin-left: 30%;
+  } */
