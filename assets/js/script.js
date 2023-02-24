@@ -399,10 +399,13 @@ function makeHaikuList(data) {
 }
 
 function makeHaiku() {
-    randLine = Math.floor(Math.random() * haikuStructure.length);
-        if (Number(haikuStructure[randLine].syllables) + 3 < haikuStructure[randLine].max) {
-            
+    for (i = 0; i < haikuDictionary.length; i++) {
+        randLine = Math.floor(Math.random() * haikuStructure.length);
+        if (Number(haikuStructure[randLine].syllables) + haikuDictionary[i].wordSyllables <= haikuStructure[randLine].max) {
+            haikuStructure[randLine].words.push(haikuDictionary[i].haikuWord);
         }
+    }
+    
 }
 
 function displayResults(data) {
