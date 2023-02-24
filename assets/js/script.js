@@ -441,7 +441,7 @@ function makeHaiku() {
             var difference2 = haikuStructure[i].max - haikuStructure[i].syllables;
             if (difference2 === 1) {
                 if (haikuStructure[i].words.length === 1) {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "the");
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "some");
                 }
                 else {
                     haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and");
@@ -449,20 +449,20 @@ function makeHaiku() {
             }
             if (difference2 === 2) {
                 if (haikuStructure[i].words.length === 1) {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "the " + tempWord);
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "some " + tempWord);
                 }
                 else {
                     haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and");
-                    haikuStructure[i].words.unshift("the")
+                    haikuStructure[i].words.unshift("some")
                 }
             }
             if (difference2 === 3) {
                 if (haikuStructure[i].words.length === 1) {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "the " + tempWord + ", " + tempWord);
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "some " + tempWord + ", " + tempWord);
                 }
                 else {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and the");
-                    haikuStructure[i].words.unshift("the")
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and some");
+                    haikuStructure[i].words.unshift("some")
                 }
             }
         }
@@ -481,6 +481,15 @@ function makeHaiku() {
         }
     }
     console.log(finishedPoem);
+    displayHaiku(finishedPoem);
+}
+
+function displayHaiku(text) {
+    for (i = 0; i < text.length; i++) {
+        var newP = $(document.createElement("p"));
+        newP.text(text[i]);
+        dialog.append(newP);
+    }
 }
 
 function displayResults(data) {
