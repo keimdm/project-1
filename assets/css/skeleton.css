@@ -187,9 +187,9 @@ body {
   font-size: 2.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: 'Cutive Mono', monospace;
-  color: #222; }
-
+  font-family: "Cutive Mono", monospace;
+  color: #222;
+}
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -542,10 +542,6 @@ there.
 
 /* Larger than tablet */
 @media (min-width: 750px) {
-}
-
-/* Larger than desktop */
-@media (min-width: 1000px) {
 }
 
 /* Larger than Desktop HD */

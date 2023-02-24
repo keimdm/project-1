@@ -46,7 +46,6 @@
   background-color: rgb(185, 104, 104);
   color: white;
   margin-bottom: 1em;
-  margin: 0px -41% 5% -41%;
 }
 
 #today-cocktail img {
@@ -71,11 +70,10 @@
 }
 
 #search {
-  background-color:rgb(185, 104, 104);
-  border:0px;
+  background-color: rgb(185, 104, 104);
+  border: 0px;
   font-size: 15px;
   color: white;
-  border-radius: 5px;
 }
 
 #results {
@@ -88,6 +86,7 @@ body {
   background-color: rgb(246, 215, 176);
 }
 
+<<<<<<< HEAD
 .buttonContainer{
   margin-left: 5px ;
   margin-top: -3.5rem;
@@ -108,8 +107,142 @@ body {
   font-size: 15px;
   color: white;
   border-radius:5px ;
+=======
+#cocktail-list {
+  margin-top: 5%;
+>>>>>>> 30e848297e8f905a9dc445da9069c1060e18472d
 }
 
-#clear:hover {background-color: rgb(153, 61, 61)}
-#add-ingredient:hover{background-color: rgb(153, 61, 61)}
-#search:hover {background-color: rgb(153, 61, 61)}
+#opener {
+  background: url("../images/info.png");
+  background-size: contain;
+  background-repeat: none;
+  height: 25px;
+  color: blue;
+}
+
+/* Desktop Styles */
+@media (min-width: 1500px) {
+  .header {
+    display: flex;
+    background-color: rgb(153, 61, 61);
+    text-align: left;
+    /* border: red solid 5px; */
+    width: 100%;
+    color: white;
+  }
+
+  #logo {
+    display: flex;
+    height: 100%;
+    margin: 5px;
+    align-self: center;
+    border: white 1px solid;
+  }
+  .title {
+    display: flex;
+    margin: 0.6em;
+    margin-left: 0.3em;
+    margin-top: 0.8em;
+    font-family: "Caveat", cursive;
+    text-decoration: dotted;
+    text-shadow: 1px 1px 2px red, 0 0 1em rgb(255, 0, 208),
+      0 0 0.2em rgb(17, 0, 255);
+  }
+
+  #today-cocktail {
+    border-style: solid;
+    border-color: white;
+    padding: 3%;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 25px;
+    background-color: rgb(185, 104, 104);
+    color: white;
+  }
+
+  .result {
+    border-style: solid;
+    border-color: white;
+    padding: 3%;
+    margin-left: 4em;
+    margin-right: 1em;
+    border-radius: 25px;
+    background-color: rgb(185, 104, 104);
+    color: white;
+    margin-bottom: 1em;
+    flex-basis: 35%;
+  }
+
+  #today-cocktail img {
+    display: block;
+    margin: auto;
+    margin-bottom: 0.5em;
+    border: 1px solid;
+  }
+
+  #today-cocktail h1,
+  .result h1 {
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: -1px 2px 0 #000, 2px 1px 0 #000, 2px -1px 0 #000,
+      -1px -1px 0 #000;
+  }
+  #form {
+    border-style: solid;
+    border-color: black;
+    border-width: 0 5px 5px 0;
+  }
+
+  #search {
+    background-color: rgb(185, 104, 104);
+    border: 0px;
+    font-size: 15px;
+    padding-bottom: 2%;
+    color: white;
+    border-radius: 5px;
+  }
+
+  #results {
+    border-style: solid;
+    border-color: purple;
+    padding: 3%;
+  }
+
+  body {
+    background-color: rgb(246, 215, 176);
+  }
+
+  #add-ingredient {
+    background-color: rgb(185, 104, 104);
+    border: 0px;
+    font-size: 15px;
+    padding-bottom: 2%;
+    color: white;
+    border-radius: 5px;
+  }
+  #clear {
+    background-color: rgb(185, 104, 104);
+    border: 0px;
+    font-size: 15px;
+    padding-bottom: 2%;
+    color: white;
+    border-radius: 5px;
+  }
+  #cocktail-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -50%;
+    margin-top: 7%;
+  }
+
+  #clear:hover {
+    background-color: rgb(153, 61, 61);
+  }
+  #add-ingredient:hover {
+    background-color: rgb(153, 61, 61);
+  }
+  #search:hover {
+    background-color: rgb(153, 61, 61);
+  }
+}
