@@ -70,95 +70,95 @@ var winterIngredients = [
   "port",
 ];
 var commonIngredientsDict = [
-    ["pear", 1],
-    ["orange", 2],
-    ["cream", 1],
-    ["lemon", 2],
-    ["port", 1],
-    ["banana", 3],
-    ["blackberries", 3],
-    ["blackberry", 3],
-    ["blueberries", 3],
-    ["blueberry", 3],
-    ["raspberries", 3],
-    ["raspberry", 3],
-    ["tomato", 3],
-    ["lemon", 2],
-    ["lime", 1],
-    ["mango", 2],
-    ["apple", 2],
-    ["cider", 2],
-    ["caramel", 3],
-    ["cinnamon", 3],
-    ["ginger", 2],
-    ["strawberry", 3],
-    ["lemon", 2],
-    ["lime", 1],
-    ["pineapple", 3],
-    ["cherries", 2],
-    ["cherry", 2],
-    ["peach", 1],
-    ["kiwi", 2],
-    ["oranges", 3],
-    ["apricot", 3],
-    ["melon", 2],
-    ["mint", 1],
-    ["lime", 1],
-    ["lemon", 2],
-    ["orange", 2],
-    ["coconut", 3],
-    ["pineapple", 3],
-    ["mango", 2],
-    ["cucumber", 3],
-    ["grapefruit", 2],
-    ["chocolate", 3],
-    ["maple", 2],
-    ["cranberry", 3],
-    ["coffee", 2],
-    ["honey", 2],
-    ["port", 1],
-    ["cream", 1],
-    ["apple", 2],
-    ["pear", 1],
-    ["gin", 1],
-    ["rye", 1],
-    ["whiskey", 2],
-    ["whisky", 2],
-    ["scotch", 1],
-    ["rum", 1],
-    ["vodka", 2],
-    ["wine", 1],
-    ["vermouth", 2],
-    ["water", 2],
-    ["syrup", 2],
-    ["bitters", 2],
-    ["sherry", 2],
-    ["absinthe", 2],
-    ["brandy", 2],
-    ["soda", 2],
-    ["tonic", 2],
-    ["seltzer", 2],
-    ["grenadine", 3],
-    ["zest", 1],
-    ["cognac", 2],
-    ["creme", 1],
-    ["pineapple", 3],
-    ["tequila", 3],
-    ["mezcal", 2]
+  ["pear", 1],
+  ["orange", 2],
+  ["cream", 1],
+  ["lemon", 2],
+  ["port", 1],
+  ["banana", 3],
+  ["blackberries", 3],
+  ["blackberry", 3],
+  ["blueberries", 3],
+  ["blueberry", 3],
+  ["raspberries", 3],
+  ["raspberry", 3],
+  ["tomato", 3],
+  ["lemon", 2],
+  ["lime", 1],
+  ["mango", 2],
+  ["apple", 2],
+  ["cider", 2],
+  ["caramel", 3],
+  ["cinnamon", 3],
+  ["ginger", 2],
+  ["strawberry", 3],
+  ["lemon", 2],
+  ["lime", 1],
+  ["pineapple", 3],
+  ["cherries", 2],
+  ["cherry", 2],
+  ["peach", 1],
+  ["kiwi", 2],
+  ["oranges", 3],
+  ["apricot", 3],
+  ["melon", 2],
+  ["mint", 1],
+  ["lime", 1],
+  ["lemon", 2],
+  ["orange", 2],
+  ["coconut", 3],
+  ["pineapple", 3],
+  ["mango", 2],
+  ["cucumber", 3],
+  ["grapefruit", 2],
+  ["chocolate", 3],
+  ["maple", 2],
+  ["cranberry", 3],
+  ["coffee", 2],
+  ["honey", 2],
+  ["port", 1],
+  ["cream", 1],
+  ["apple", 2],
+  ["pear", 1],
+  ["gin", 1],
+  ["rye", 1],
+  ["whiskey", 2],
+  ["whisky", 2],
+  ["scotch", 1],
+  ["rum", 1],
+  ["vodka", 2],
+  ["wine", 1],
+  ["vermouth", 2],
+  ["water", 2],
+  ["syrup", 2],
+  ["bitters", 2],
+  ["sherry", 2],
+  ["absinthe", 2],
+  ["brandy", 2],
+  ["soda", 2],
+  ["tonic", 2],
+  ["seltzer", 2],
+  ["grenadine", 3],
+  ["zest", 1],
+  ["cognac", 2],
+  ["creme", 1],
+  ["pineapple", 3],
+  ["tequila", 3],
+  ["mezcal", 2],
 ];
 var monthsDict = [
-    ["January", 5],
-    ["February", 5],
-    ["March", 2],
-    ["April", 3],
-    ["May", 2],
-    ["June", 2],
-    ["July", 3],
-    ["August", 3],
-    ["September", 4],
-    ["October", 4],
-    ["November", 4],
-    ["December", 4]
+  ["January", 5],
+  ["February", 5],
+  ["March", 2],
+  ["April", 3],
+  ["May", 2],
+  ["June", 2],
+  ["July", 3],
+  ["August", 3],
+  ["September", 4],
+  ["October", 4],
+  ["November", 4],
+  ["December", 4],
 ];
 var commonIngredients = [];
 var months = [];
@@ -166,28 +166,28 @@ var tempThreshold = 283;
 var haikuWords = [];
 var haikuDictionary = [];
 var haikuStructure = [
-    firstLine = {
-        words: [],
-        syllables: 0,
-        max: 5
-    },
-    secondLine = {
-        words: [],
-        syllables: 0,
-        max: 7
-    },
-    thirdLine = {
-        words: [],
-        syllables: 0,
-        max: 5
-    }
+  (firstLine = {
+    words: [],
+    syllables: 0,
+    max: 5,
+  }),
+  (secondLine = {
+    words: [],
+    syllables: 0,
+    max: 7,
+  }),
+  (thirdLine = {
+    words: [],
+    syllables: 0,
+    max: 5,
+  }),
 ];
 const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'cb37aed766msh4422bf0302f36fbp1aa0dejsn1b793f56d67c',
-		'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-	}
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "cb37aed766msh4422bf0302f36fbp1aa0dejsn1b793f56d67c",
+    "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+  },
 };
 
 // FUNCTIONS
@@ -238,7 +238,7 @@ function getCocktails(temperature) {
   if (Number(temperature) > tempThreshold) {
     var randHot = Math.floor(Math.random() * hotIngredients.length);
     ingredientA = hotIngredients[randHot];
-    tempWord= "warm";
+    tempWord = "warm";
   } else {
     var randCold = Math.floor(Math.random() * coldIngredients.length);
     ingredientA = coldIngredients[randCold];
@@ -335,161 +335,205 @@ function displayCocktailDay(data) {
 }
 
 function addEntry(word) {
-    console.log(word);
-    var syllables = 0;
-    var type = "";
-    try {
-        syllables = commonIngredientsDict[commonIngredients.indexOf(word)][1];
-        type = "noun";
-    }
-    catch {
-        syllables = monthsDict[months.indexOf(word)][1];
-        type = "month";
-    }
-    var newEntry = {
-        haikuWord: word,
-        wordSyllables: syllables,
-        wordType: type  
-    };
-    haikuDictionary.push(newEntry);
+  console.log(word);
+  var syllables = 0;
+  var type = "";
+  try {
+    syllables = commonIngredientsDict[commonIngredients.indexOf(word)][1];
+    type = "noun";
+  } catch {
+    syllables = monthsDict[months.indexOf(word)][1];
+    type = "month";
+  }
+  var newEntry = {
+    haikuWord: word,
+    wordSyllables: syllables,
+    wordType: type,
+  };
+  haikuDictionary.push(newEntry);
 }
 
 function setUpLists() {
-    for (i = 0; i < commonIngredientsDict.length; i++) {
-        commonIngredients.push(commonIngredientsDict[i][0]);
-    }
-    for (i = 0; i < monthsDict.length; i++) {
-        months.push(monthsDict[i][0]);
-    }
-    console.log(commonIngredients);
-    console.log(months);
+  for (i = 0; i < commonIngredientsDict.length; i++) {
+    commonIngredients.push(commonIngredientsDict[i][0]);
+  }
+  for (i = 0; i < monthsDict.length; i++) {
+    months.push(monthsDict[i][0]);
+  }
+  console.log(commonIngredients);
+  console.log(months);
 }
 
 function makeHaikuList(data) {
-    for (i = 0; i < data.ingredients.length; i++) {
-        var ingredientLine = data.ingredients[i].split(" ");
-        for (j = 0; j < ingredientLine.length; j++) {
-            var word = ingredientLine[j].toLowerCase();
-            if (commonIngredients.includes(word) && haikuWords.length < 8) {
-                haikuWords.push(word);
-                addEntry(word);
-            }
-            if (commonIngredients.includes(word.slice(0, word.length - 1)) && haikuWords.length < 8) {
-                haikuWords.push(word.slice(0, word.length - 1));
-                addEntry(word.slice(0, word.length - 1));
-            }
-        }
+  for (i = 0; i < data.ingredients.length; i++) {
+    var ingredientLine = data.ingredients[i].split(" ");
+    for (j = 0; j < ingredientLine.length; j++) {
+      var word = ingredientLine[j].toLowerCase();
+      if (commonIngredients.includes(word) && haikuWords.length < 8) {
+        haikuWords.push(word);
+        addEntry(word);
+      }
+      if (
+        commonIngredients.includes(word.slice(0, word.length - 1)) &&
+        haikuWords.length < 8
+      ) {
+        haikuWords.push(word.slice(0, word.length - 1));
+        addEntry(word.slice(0, word.length - 1));
+      }
     }
-    while (haikuWords.length < 8) {
-        for (k = 0; k < haikuWords.length; k++) {
-            if (!months.includes(haikuWords[k]) && haikuWords.length < 8) {
-                haikuWords.push(haikuWords[k]);
-            }
-        }
+  }
+  while (haikuWords.length < 8) {
+    for (k = 0; k < haikuWords.length; k++) {
+      if (!months.includes(haikuWords[k]) && haikuWords.length < 8) {
+        haikuWords.push(haikuWords[k]);
+      }
     }
-    console.log(haikuWords);
-    console.log(haikuDictionary);
-    makeHaiku();
+  }
+  console.log(haikuWords);
+  console.log(haikuDictionary);
+  makeHaiku();
 }
 
 function makeHaiku() {
-    testDone = false;
-    while (testDone === false) {  
-        for (i = 0; i < haikuDictionary.length; i++) {
-            randLine = Math.floor(Math.random() * haikuStructure.length);
-            if (Number(haikuStructure[randLine].syllables) + haikuDictionary[i].wordSyllables <= haikuStructure[randLine].max) {
-                haikuStructure[randLine].words.push(haikuDictionary[i].haikuWord);
-                haikuStructure[randLine].syllables = haikuStructure[randLine].syllables + haikuDictionary[i].wordSyllables;
-                if (months.includes(haikuDictionary[i].haikuWord)) {
-                    haikuDictionary.splice(i, 1);
-                }
-            }
+  testDone = false;
+  while (testDone === false) {
+    for (i = 0; i < haikuDictionary.length; i++) {
+      randLine = Math.floor(Math.random() * haikuStructure.length);
+      if (
+        Number(haikuStructure[randLine].syllables) +
+          haikuDictionary[i].wordSyllables <=
+        haikuStructure[randLine].max
+      ) {
+        haikuStructure[randLine].words.push(haikuDictionary[i].haikuWord);
+        haikuStructure[randLine].syllables =
+          haikuStructure[randLine].syllables + haikuDictionary[i].wordSyllables;
+        if (months.includes(haikuDictionary[i].haikuWord)) {
+          haikuDictionary.splice(i, 1);
         }
-        testDone = true;
-        for (i = 0; i < haikuStructure.length; i++) {
-            if (Number(haikuStructure[i].syllables) + 3 < haikuStructure[i].max) {
-                testDone = false;
-            }
-        }
+      }
     }
-    console.log(haikuStructure);
+    testDone = true;
     for (i = 0; i < haikuStructure.length; i++) {
-        var monthCheck = false;
-        var monthIndex = -1;
-        for (j = 0; j < haikuStructure[i].words.length; j++) {
-            if (months.includes(haikuStructure[i].words[j])) {
-                monthCheck = true;
-                monthIndex = j;
-            }
-        }
-        if (monthCheck) {
-            var placeholder = haikuStructure[i].words[haikuStructure[i].words.length - 1];
-            haikuStructure[i].words[haikuStructure[i].words.length - 1] = haikuStructure[i].words[monthIndex];
-            haikuStructure[i].words[monthIndex] = placeholder;
-            var difference = haikuStructure[i].max - haikuStructure[i].syllables;
-            if (difference === 0) {
-                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in");
-            }
-            if (difference === 1) {
-                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in " + tempWord);
-            }
-            if (difference === 2) {
-                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in this " + tempWord);
-            }
-        }
-        else {
-            var difference2 = haikuStructure[i].max - haikuStructure[i].syllables;
-            if (difference2 === 1) {
-                if (haikuStructure[i].words.length === 1) {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "some");
-                }
-                else {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and");
-                }
-            }
-            if (difference2 === 2) {
-                if (haikuStructure[i].words.length === 1) {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "some " + tempWord);
-                }
-                else {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and");
-                    haikuStructure[i].words.unshift("some")
-                }
-            }
-            if (difference2 === 3) {
-                if (haikuStructure[i].words.length === 1) {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "some " + tempWord + ", " + tempWord);
-                }
-                else {
-                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and some");
-                    haikuStructure[i].words.unshift("some")
-                }
-            }
-        }
+      if (Number(haikuStructure[i].syllables) + 3 < haikuStructure[i].max) {
+        testDone = false;
+      }
     }
-    var finishedPoem = ["", "", ""];
-    for (i = 0; i < haikuStructure.length; i++) {
-        for (j = 0; j < haikuStructure[i].words.length; j++) {
-            var nextWord = haikuStructure[i].words[j];
-            if (commonIngredients.includes(nextWord) && j !== haikuStructure[i].words.length - 1) {
-                nextWord = nextWord + ",";
-            }
-            finishedPoem[i] = finishedPoem[i] + " " + nextWord;
-        }
-        if (i !== 2) {
-            finishedPoem[i] = finishedPoem[i] + ",";
-        }
+  }
+  console.log(haikuStructure);
+  for (i = 0; i < haikuStructure.length; i++) {
+    var monthCheck = false;
+    var monthIndex = -1;
+    for (j = 0; j < haikuStructure[i].words.length; j++) {
+      if (months.includes(haikuStructure[i].words[j])) {
+        monthCheck = true;
+        monthIndex = j;
+      }
     }
-    console.log(finishedPoem);
-    displayHaiku(finishedPoem);
+    if (monthCheck) {
+      var placeholder =
+        haikuStructure[i].words[haikuStructure[i].words.length - 1];
+      haikuStructure[i].words[haikuStructure[i].words.length - 1] =
+        haikuStructure[i].words[monthIndex];
+      haikuStructure[i].words[monthIndex] = placeholder;
+      var difference = haikuStructure[i].max - haikuStructure[i].syllables;
+      if (difference === 0) {
+        haikuStructure[i].words.splice(
+          haikuStructure[i].words.length - 1,
+          0,
+          "in"
+        );
+      }
+      if (difference === 1) {
+        haikuStructure[i].words.splice(
+          haikuStructure[i].words.length - 1,
+          0,
+          "in " + tempWord
+        );
+      }
+      if (difference === 2) {
+        haikuStructure[i].words.splice(
+          haikuStructure[i].words.length - 1,
+          0,
+          "in this " + tempWord
+        );
+      }
+    } else {
+      var difference2 = haikuStructure[i].max - haikuStructure[i].syllables;
+      if (difference2 === 1) {
+        if (haikuStructure[i].words.length === 1) {
+          haikuStructure[i].words.splice(
+            haikuStructure[i].words.length - 1,
+            0,
+            "some"
+          );
+        } else {
+          haikuStructure[i].words.splice(
+            haikuStructure[i].words.length - 1,
+            0,
+            "and"
+          );
+        }
+      }
+      if (difference2 === 2) {
+        if (haikuStructure[i].words.length === 1) {
+          haikuStructure[i].words.splice(
+            haikuStructure[i].words.length - 1,
+            0,
+            "some " + tempWord
+          );
+        } else {
+          haikuStructure[i].words.splice(
+            haikuStructure[i].words.length - 1,
+            0,
+            "and"
+          );
+          haikuStructure[i].words.unshift("some");
+        }
+      }
+      if (difference2 === 3) {
+        if (haikuStructure[i].words.length === 1) {
+          haikuStructure[i].words.splice(
+            haikuStructure[i].words.length - 1,
+            0,
+            "some " + tempWord + ", " + tempWord
+          );
+        } else {
+          haikuStructure[i].words.splice(
+            haikuStructure[i].words.length - 1,
+            0,
+            "and some"
+          );
+          haikuStructure[i].words.unshift("some");
+        }
+      }
+    }
+  }
+  var finishedPoem = ["", "", ""];
+  for (i = 0; i < haikuStructure.length; i++) {
+    for (j = 0; j < haikuStructure[i].words.length; j++) {
+      var nextWord = haikuStructure[i].words[j];
+      if (
+        commonIngredients.includes(nextWord) &&
+        j !== haikuStructure[i].words.length - 1
+      ) {
+        nextWord = nextWord + ",";
+      }
+      finishedPoem[i] = finishedPoem[i] + " " + nextWord;
+    }
+    if (i !== 2) {
+      finishedPoem[i] = finishedPoem[i] + ",";
+    }
+  }
+  console.log(finishedPoem);
+  displayHaiku(finishedPoem);
 }
 
 function displayHaiku(text) {
-    for (i = 0; i < text.length; i++) {
-        var newP = $(document.createElement("p"));
-        newP.text(text[i]);
-        dialog.append(newP);
-    }
+  for (i = 0; i < text.length; i++) {
+    var newP = $(document.createElement("p"));
+    newP.text(text[i]);
+    dialog.append(newP);
+  }
 }
 
 function displayResults(data) {
