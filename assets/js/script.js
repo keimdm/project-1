@@ -155,18 +155,18 @@ var commonIngredientsDict = [
     ["mezcal", 2]
 ];
 var monthsDict = [
-    ["January", 4],
-    ["February", 4],
-    ["March", 1],
-    ["April", 2],
-    ["May", 1],
-    ["June", 1],
-    ["July", 2],
-    ["August", 2],
-    ["September", 3],
-    ["October", 3],
-    ["November", 3],
-    ["December", 3]
+    ["January", 5],
+    ["February", 5],
+    ["March", 2],
+    ["April", 3],
+    ["May", 2],
+    ["June", 2],
+    ["July", 3],
+    ["August", 3],
+    ["September", 4],
+    ["October", 4],
+    ["November", 4],
+    ["December", 4]
 ];
 var commonIngredients = [];
 var months = [];
@@ -399,13 +399,23 @@ function makeHaikuList(data) {
 }
 
 function makeHaiku() {
-    for (i = 0; i < haikuDictionary.length; i++) {
-        randLine = Math.floor(Math.random() * haikuStructure.length);
-        if (Number(haikuStructure[randLine].syllables) + haikuDictionary[i].wordSyllables <= haikuStructure[randLine].max) {
-            haikuStructure[randLine].words.push(haikuDictionary[i].haikuWord);
+    testDone = false;
+    while (testDone === false) {  
+        for (i = 0; i < haikuDictionary.length; i++) {
+            randLine = Math.floor(Math.random() * haikuStructure.length);
+            if (Number(haikuStructure[randLine].syllables) + haikuDictionary[i].wordSyllables <= haikuStructure[randLine].max) {
+                haikuStructure[randLine].words.push(haikuDictionary[i].haikuWord);
+                haikuStructure[randLine].syllables = haikuStructure[randLine].syllables + haikuDictionary[i].wordSyllables;
+            }
+        }
+        testDone = true;
+        for (i = 0; i < haikuStructure.length; i++) {
+            if (Number(haikuStructure[i].syllables) + 3 < haikuStructure[i].max) {
+                testDone = false;
+            }
         }
     }
-    
+    console.log(haikuStructure);
 }
 
 function displayResults(data) {
@@ -422,7 +432,8 @@ function displayResults(data) {
     // set element properties
     newTitle.text(data[i].name);
     newCard.addClass("result");
-    saveButton.text("save");
+    saveButton.text("add to favorites +");
+    saveButton.addClass("cardButtons");
     saveButton.click(function (event) {
       saveUserFav(data);
     });
