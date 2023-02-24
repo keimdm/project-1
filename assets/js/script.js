@@ -69,86 +69,89 @@ var winterIngredients = [
   "port",
 ];
 var commonIngredients = [
-    "pear",
-    "orange",
-    "cream",
-    "lemon",
-    "pomegranate",
-    "port",
-    "bananas",
-    "blackberries",
-    "blueberries",
-    "raspberries",
-    "tomato",
-    "watermelon",
-    "lemon",
-    "lime",
-    "mango",
-    "apple",
-    "cider",
-    "caramel",
-    "cinnamon",
-    "ginger",
-    "strawberry",
-    "lemon",
-    "lime",
-    "pineapple",
-    "cherries",
-    "peach",
-    "kiwi",
-    "oranges",
-    "apricot",
-    "melon",
-    "mint",
-    "lime",
-    "lemon",
-    "orange",
-    "coconut",
-    "pineapple",
-    "watermelon",
-    "mango",
-    "cucumber",
-    "grapefruit",
-    "chocolate",
-    "maple",
-    "cranberry",
-    "coffee",
-    "honey",
-    "port",
-    "cream",
-    "apple",
-    "pear",
-    "gin",
-    "rye",
-    "whiskey",
-    "whisky",
-    "scotch",
-    "rum",
-    "vodka",
-    "wine",
-    "vermouth",
-    "spirits",
-    "spirit",
-    "liquor",
-    "water",
-    "liqueur",
-    "syrup",
-    "juice",
-    "bitters",
-    "bitter",
-    "sherry",
-    "absinthe",
-    "brandy",
-    "garnish",
-    "soda",
-    "tonic",
-    "seltzer",
-    "grenadine",
-    "zest",
-    "cognac",
-    "maraschino",
-    "creme",
-    "pineapple",
+    ["pear", 1],
+    ["orange", 2],
+    ["cream", 1],
+    ["lemon", 2],
+    ["pomegranate", 4],
+    ["port", 1],
+    ["banana", 3],
+    ["blackberries", 3],
+    ["blackberry", 3],
+    ["blueberries", 3],
+    ["blueberry", 3],
+    ["raspberries", 3],
+    ["raspberry", 3],
+    ["tomato", 3],
+    ["watermelon", 4],
+    ["lemon", 2],
+    ["lime", 1],
+    ["mango", 2],
+    ["apple", 2],
+    ["cider", 2],
+    ["caramel", 3],
+    ["cinnamon", 3],
+    ["ginger", 2],
+    ["strawberry", 3],
+    ["lemon", 2],
+    ["lime", 1],
+    ["pineapple", 3],
+    ["cherries", 2],
+    ["cherry", 2],
+    ["peach", 1],
+    ["kiwi", 2],
+    ["oranges", 3],
+    ["apricot", 3],
+    ["melon", 2],
+    ["mint", 1],
+    ["lime", 1],
+    ["lemon", 2],
+    ["orange", 2],
+    ["coconut", 3],
+    ["pineapple", 3],
+    ["watermelon", 4],
+    ["mango", 2],
+    ["cucumber", 3],
+    ["grapefruit", 2],
+    ["chocolate", 3],
+    ["maple", 2],
+    ["cranberry", 3],
+    ["coffee", 2],
+    ["honey", 2],
+    ["port", 1],
+    ["cream", 1],
+    ["apple", 2],
+    ["pear", 1],
+    ["gin", 1],
+    ["rye", 1],
+    ["whiskey", 2],
+    ["whisky", 2],
+    ["scotch", 1],
+    ["rum", 1],
+    ["vodka", 2],
+    ["wine", 1],
+    ["vermouth", 2],
+    ["spirits", 2],
+    ["spirit", 2],
+    ["liquor", 2],
+    ["water", 2],
+    ["liqueur", 2],
+    ["syrup", 2],
+    ["juice", 1],
+    ["bitters", 2],
+    ["sherry", 2],
+    ["absinthe", 2],
+    ["brandy", 2],
+    ["soda", 2],
+    ["tonic", 2],
+    ["seltzer", 2],
+    ["grenadine", 3],
+    ["zest", 1],
+    ["cognac", 2],
+    ["maraschino", 4],
+    ["creme", 1],
+    ["pineapple", 3],
+    ["tequila", 3]
 ];
 var months = [
     "January",
@@ -163,9 +166,34 @@ var months = [
     "October",
     "November",
     "December"
-  ];
+];
 var tempThreshold = 283;
 var haikuWords = [];
+var haikuDictionary = [];
+var haikuStructure = [
+    firstLine = {
+        words: [],
+        syllables: 0,
+        max: 5
+    },
+    secondLine = {
+        words: [],
+        syllables: 0,
+        max: 7
+    },
+    thirdLine = {
+        words: [],
+        syllables: 0,
+        max: 5
+    }
+];
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'cb37aed766msh4422bf0302f36fbp1aa0dejsn1b793f56d67c',
+		'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+	}
+};
 
 // FUNCTIONS
 function checkLocation() {
@@ -303,6 +331,61 @@ function displayCocktailDay(data) {
     todayCocktail.children().eq(3).append(newLI);
   }
   todayCocktail.children().eq(4).text(cocktailSelected.instructions);
+  makeHaikuList(cocktailSelected);
+}
+
+function makeHaikuList(data) {
+    for (i = 0; i < data.ingredients.length; i++) {
+        var ingredientLine = data.ingredients[i].split(" ");
+        for (j = 0; j < ingredientLine.length; j++) {
+            var word = ingredientLine[j].toLowerCase();
+            if (commonIngredients.includes(word) && haikuWords.length < 8) {
+                haikuWords.push(word);
+            }
+            if (commonIngredients.includes(word.slice(0, word.length - 1)) && haikuWords.length < 8) {
+                haikuWords.push(word.slice(0, word.length - 1));
+            }
+        }
+    }
+    while (haikuWords.length < 8) {
+        for (k = 0; k < haikuWords.length; k++) {
+            if (!months.includes(haikuWords[k]) && haikuWords.length < 8) {
+                haikuWords.push(haikuWords[k]);
+            }
+        }
+    }
+    console.log(haikuWords);
+    makeDictionary();
+}
+
+function makeDictionary() {
+    for (i = 0; i < haikuWords.length; i++) {
+        fetch('https://wordsapiv1.p.rapidapi.com/words/%7Bword%7D', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err))
+        var type;
+        if (months.includes(haikuWords[i])) {
+            type = "month";
+        }
+        else {
+            type = "noun";
+        }
+        var newEntry = {
+            word: haikuWords[i],
+            syllables: wordSyllables,
+            wordType: type
+        };
+        haikuDictionary.push(newEntry);
+    }
+    console.log(haikuDictionary);
+}
+
+function makeHaiku() {
+    randLine = Math.floor(Math.random() * haikuStructure.length);
+        if (Number(haikuStructure[randLine].syllables) + 3 < haikuStructure[randLine].max) {
+            
+        }
 }
 
 function displayResults(data) {
