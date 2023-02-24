@@ -70,8 +70,8 @@
 }
 
 #search {
-  background-color:rgb(185, 104, 104);
-  border:0px;
+  background-color: rgb(185, 104, 104);
+  border: 0px;
   font-size: 15px;
   padding-bottom: 2%;
   color: white;
@@ -88,74 +88,37 @@ body {
   background-color: rgb(246, 215, 176);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#add-ingredient{
+#add-ingredient {
   background-color: rgb(185, 104, 104);
-  border:0px;
+  border: 0px;
   font-size: 15px;
   padding-bottom: 2%;
   color: white;
-  border-radius:5px ;
-
+  border-radius: 5px;
 }
-#clear{
-  background-color:rgb(185, 104, 104); 
-  border:0px;
+#clear {
+  background-color: rgb(185, 104, 104);
+  border: 0px;
   font-size: 15px;
   padding-bottom: 2%;
   color: white;
-  border-radius:5px ;
-  
+  border-radius: 5px;
 }
 
 #opener {
-  background-image: url(../images/info.png);
+  background: url("../images/info.png");
+  background-size: contain;
   background-repeat: none;
-  background-size: fit;
-  width: 20px;
-  height: 50px;
+  height: 25px;
   color: blue;
 }
 
-#clear:hover {background-color: rgb(153, 61, 61)}
-#add-ingredient:hover{background-color: rgb(153, 61, 61)}
-#search:hover {background-color: rgb(153, 61, 61)}
+#clear:hover {
+  background-color: rgb(153, 61, 61);
+}
+#add-ingredient:hover {
+  background-color: rgb(153, 61, 61);
+}
+#search:hover {
+  background-color: rgb(153, 61, 61);
+}
