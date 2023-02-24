@@ -11,6 +11,7 @@ var dialog = $("#dialog");
 // DATA
 // add NYC latitude and longitude
 var ingredientList = [];
+var tempWord;
 var latNYC = "40.7129";
 var lonNYC = "-74.0060";
 var hotIngredients = [
@@ -238,9 +239,11 @@ function getCocktails(temperature) {
   if (Number(temperature) > tempThreshold) {
     var randHot = Math.floor(Math.random() * hotIngredients.length);
     ingredientA = hotIngredients[randHot];
+    tempWord= "warm";
   } else {
     var randCold = Math.floor(Math.random() * coldIngredients.length);
     ingredientA = coldIngredients[randCold];
+    tempWord = "cold";
   }
   var currentMonth = dayjs().month();
   if (currentMonth === 0 || currentMonth === 1 || currentMonth === 2) {
@@ -429,22 +432,24 @@ function makeHaiku() {
                 haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in");
             }
             if (difference === 1) {
-                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in in");
+                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in " + tempWord);
             }
             if (difference === 2) {
-                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in in in");
+                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in this " + tempWord);
             }
         }
         else {
             var difference2 = haikuStructure[i].max - haikuStructure[i].syllables;
             if (difference2 === 1) {
-                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in");
+                if (haikuStructure[i].words.length === 1) {
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "the");
+                }
+                else {
+                    haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "and");
+                }
             }
             if (difference2 === 2) {
                 haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in in");
-            }
-            if (difference2 === 3) {
-                haikuStructure[i].words.splice(haikuStructure[i].words.length - 1, 0, "in in in");
             }
         }
     }
