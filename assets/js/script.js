@@ -6,6 +6,7 @@ var todayCocktail = $("#today-cocktail");
 var addIngredientButton = $("#add-ingredient");
 var ingredient;
 var displayList = $("#display-list");
+var helpButton= $("#helpButton");
 var dialog = $("#dialog");
 
 // DATA
@@ -672,3 +673,22 @@ $(function () {
     $("#dialog").dialog("open");
   });
 });
+
+//Help Button 
+$( function() {
+  $( "#helpButton" ).dialog({
+    autoOpen: false,
+    show: {
+      effect: "blind",
+      duration: 1000
+    },
+    hide: {
+      effect: "explode",
+      duration: 1000
+    }
+  });
+
+  $( "#help-button" ).on( "click", function() {
+    $( "#helpButton" ).dialog( "open" );
+  });
+} );
