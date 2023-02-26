@@ -637,6 +637,13 @@ $("#search").on("click", function (event) {
   favoritesDiv.hide();
   cocktailList.show();
   ingredient = searchInput.val();
+  for (i = 0; i < ingredientList.length; i++) {
+    if (ingredient === "") {
+      ingredient = ingredientList[i];
+    } else {
+      ingredient = ingredient + ", " + ingredientList[i];
+    }
+  }
   console.log(ingredient);
   if (ingredient !== "") {
     searchCocktails(ingredient);
@@ -649,6 +656,13 @@ $("#search-form").on("submit", function (event) {
   favoritesDiv.hide();
   cocktailList.show();
   ingredient = searchInput.val();
+  for (i = 0; i < ingredientList.length; i++) {
+    if (ingredient === "") {
+      ingredient = ingredientList[i];
+    } else {
+      ingredient = ingredient + ", " + ingredientList[i];
+    }
+  }
   console.log(ingredient);
   if (ingredient !== "") {
     searchCocktails(ingredient);
@@ -677,6 +691,11 @@ function addIngredient(ingredient) {
   ingredientList.push(ingredient);
   console.log(ingredientList);
 }
+$("#clear").on("click", function () {
+  console.log("clear");
+  ingredientList = [];
+  displayList.empty();
+});
 
 // INITIALIZATIONS
 favoritesDiv.hide();

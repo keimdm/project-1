@@ -75,6 +75,7 @@
   border-style: solid;
   border-color: black;
   border-width: 0 5px 5px 0;
+  color: #000;
 }
 
 /* Create search button */
@@ -247,7 +248,7 @@ body {
 
 #ing-search {
   border-radius: 5px;
-  color: white;
+  color: black;
   border-color: rgb(185, 104, 104);
   width: 200px;
 }
