@@ -7,6 +7,8 @@ var favoritesDiv = $("#favorites-list");
 var ingredient;
 var displayList = $("#display-list");
 var dialog = $("#dialog");
+var favoritesButton = $("#favorites-button");
+var addIngredientButton = $("#add-ingredient");
 
 // DATA
 // add NYC latitude and longitude
@@ -355,11 +357,8 @@ function displayFavoritesList() {
     instructions.text(favoritesList[i].instructions);
     newCard.append(instructions);
     favoritesDiv.append(newCard);
-    //  make paragraph
-    //  put the cocktail name in it
   }
 }
-displayFavoritesList();
 
 function displayCocktailDay(data) {
   var cocktailRand = Math.floor(Math.random() * data.length);
@@ -608,7 +607,6 @@ function displayResults(data) {
     newCard.append(newInstructions);
     newCard.append(saveButton);
     // append card onto cocktail list
-    todayCocktail.hide();
     cocktailList.append(newCard);
   }
 }
@@ -635,6 +633,9 @@ function searchCocktails(ingInput) {
 // USER INTERACTIONS
 $("#search").on("click", function (event) {
   event.preventDefault();
+  todayCocktail.hide();
+  favoritesDiv.hide();
+  cocktailList.show();
   ingredient = searchInput.val();
   console.log(ingredient);
   if (ingredient !== "") {
@@ -644,6 +645,9 @@ $("#search").on("click", function (event) {
 
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
+  todayCocktail.hide();
+  favoritesDiv.hide();
+  cocktailList.show();
   ingredient = searchInput.val();
   console.log(ingredient);
   if (ingredient !== "") {
@@ -654,8 +658,29 @@ cocktailList.click("button", function (event) {
   saveUserFav(event.target);
   console.log("savebutton");
 });
+favoritesButton.on("click", function (event) {
+  event.preventDefault();
+  favoritesDiv.show();
+  todayCocktail.hide();
+  cocktailList.hide();
+});
+addIngredientButton.on("click", function (event) {
+  event.preventDefault();
+  ingredient = searchInput.val();
+  addIngredient(ingredient);
+  searchInput.val("");
+  var ingredientListItem = $(document.createElement("li"));
+  ingredientListItem.text(ingredient);
+  displayList.append(ingredientListItem);
+});
+function addIngredient(ingredient) {
+  ingredientList.push(ingredient);
+  console.log(ingredientList);
+}
 
 // INITIALIZATIONS
+favoritesDiv.hide();
+displayFavoritesList();
 setUpLists();
 checkLocation();
 
