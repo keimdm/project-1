@@ -300,35 +300,63 @@ function getCocktails(temperature) {
   });
 }
 //Function the have the user save their favorite cocktail reciepe
-function saveUserFav(data) {
-  console.log(data);
+function saveUserFav(target) {
+  console.log(target);
+  var parent = $(target).parent();
   var favoritesList = localStorage.getItem("favoritesList");
   if (!favoritesList) {
     favoritesList = [];
   } else {
     favoritesList = JSON.parse(favoritesList);
   }
+  var newIngredients = [];
+  console.log(parent.children());
+  for (i = 0; i < parent.children().eq(1).children().length; i++) {
+    newIngredients.push(parent.children().eq(1).children().eq(i).text());
+  }
+  var newEntry = {
+    title: parent.children().eq(0).text(),
+    ingredients: newIngredients,
+    instructions: parent.children().eq(2).text(),
+  };
+  console.log(newEntry);
 
-  favoritesList.push(data);
+  favoritesList.push(newEntry);
 
   localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
 }
 function displayFavoritesList() {
   //get the data from localStorage-it's an array
   var favoritesList = localStorage.getItem("favoritesList");
+  console.log(favoritesList);
+  console.log(localStorage);
   if (!favoritesList) {
     favoritesList = [];
   } else {
     favoritesList = JSON.parse(favoritesList);
   }
   //go through each item in a favorite list
-  for (var i = 0; i < favoritesList.length.ingredients; i++) {
+  console.log(favoritesList);
+  for (var i = 0; i < favoritesList.length; i++) {
+    console.log(favoritesList[i]);
+    var newCard = $(document.createElement("article"));
+    newCard.addClass("result");
+    var title = $(document.createElement("p"));
+    title.text(favoritesList[i].title);
+    newCard.append(title);
+    var list = $(document.createElement("ul"));
+    for (var k = 0; k < favoritesList[i].ingredients.length; k++) {
+      var paragraph = $(document.createElement("li"));
+      paragraph.text(favoritesList[i].ingredients[k]);
+      list.append(paragraph);
+    }
+    newCard.append(list);
+    var instructions = $(document.createElement("p"));
+    instructions.text(favoritesList[i].instructions);
+    newCard.append(instructions);
+    favoritesDiv.append(newCard);
     //  make paragraph
-    var paragraph = $("<p>");
     //  put the cocktail name in it
-    paragraph.text(favoritesList);
-    favoritesDiv.append(paragraph);
-    //  put it in the favorites list div
   }
 }
 displayFavoritesList();
@@ -566,9 +594,6 @@ function displayResults(data) {
     newCard.addClass("result");
     saveButton.text("add to favorites +");
     saveButton.addClass("cardButtons");
-    saveButton.click(function (event) {
-      saveUserFav(data);
-    });
 
     // loop through all ingredient entries and add them to new Ingredients list
     for (j = 0; j < data[i].ingredients.length; j++) {
@@ -624,6 +649,10 @@ $("#search-form").on("submit", function (event) {
   if (ingredient !== "") {
     searchCocktails(ingredient);
   }
+});
+cocktailList.click("button", function (event) {
+  saveUserFav(event.target);
+  console.log("savebutton");
 });
 
 // INITIALIZATIONS
