@@ -3,11 +3,12 @@ var cocktailList = $("#cocktail-list");
 var searchInput = $("#ing-search");
 var searchButEl = $("#search");
 var todayCocktail = $("#today-cocktail");
-var addIngredientButton = $("#add-ingredient");
+var favoritesDiv = $("#favorites-list");
 var ingredient;
 var displayList = $("#display-list");
-var helpButton= $("#helpButton");
 var dialog = $("#dialog");
+var favoritesButton = $("#favorites-button");
+var addIngredientButton = $("#add-ingredient");
 
 // DATA
 // add NYC latitude and longitude
@@ -301,24 +302,62 @@ function getCocktails(temperature) {
   });
 }
 //Function the have the user save their favorite cocktail reciepe
-function saveUserFav(data) {
-  console.log(data);
+function saveUserFav(target) {
+  console.log(target);
+  var parent = $(target).parent();
   var favoritesList = localStorage.getItem("favoritesList");
   if (!favoritesList) {
     favoritesList = [];
   } else {
     favoritesList = JSON.parse(favoritesList);
   }
+  var newIngredients = [];
+  console.log(parent.children());
+  for (i = 0; i < parent.children().eq(1).children().length; i++) {
+    newIngredients.push(parent.children().eq(1).children().eq(i).text());
+  }
+  var newEntry = {
+    title: parent.children().eq(0).text(),
+    ingredients: newIngredients,
+    instructions: parent.children().eq(2).text(),
+  };
+  console.log(newEntry);
 
-  favoritesList.push(data);
+  favoritesList.push(newEntry);
 
   localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
-  // event.preventDefault();
-  // insert your fav cocktail
-  //     var cocktail= cocktailInput.value;
-  //    localStorage.setItem('cocktail', cocktail);
-
-  //     window.location.reload();
+}
+function displayFavoritesList() {
+  //get the data from localStorage-it's an array
+  var favoritesList = localStorage.getItem("favoritesList");
+  console.log(favoritesList);
+  console.log(localStorage);
+  if (!favoritesList) {
+    favoritesList = [];
+  } else {
+    favoritesList = JSON.parse(favoritesList);
+  }
+  //go through each item in a favorite list
+  console.log(favoritesList);
+  for (var i = 0; i < favoritesList.length; i++) {
+    console.log(favoritesList[i]);
+    var newCard = $(document.createElement("article"));
+    newCard.addClass("result");
+    var title = $(document.createElement("p"));
+    title.text(favoritesList[i].title);
+    newCard.append(title);
+    var list = $(document.createElement("ul"));
+    for (var k = 0; k < favoritesList[i].ingredients.length; k++) {
+      var paragraph = $(document.createElement("li"));
+      paragraph.text(favoritesList[i].ingredients[k]);
+      list.append(paragraph);
+    }
+    newCard.append(list);
+    var instructions = $(document.createElement("p"));
+    instructions.text(favoritesList[i].instructions);
+    newCard.append(instructions);
+    favoritesDiv.append(newCard);
+  }
 }
 
 function displayCocktailDay(data) {
@@ -544,7 +583,7 @@ function displayResults(data) {
   for (i = 0; i < data.length; i++) {
     // create elements needed for cocktail recipe display
     var newCard = $(document.createElement("article"));
-    var newTitle = $(document.createElement("h1"));
+    var newTitle = $(document.createElement("p"));
     var newIngredients = $(document.createElement("ul"));
     var newInstructions = $(document.createElement("p"));
     var saveButton = $(document.createElement("button"));
@@ -554,9 +593,6 @@ function displayResults(data) {
     newCard.addClass("result");
     saveButton.text("add to favorites +");
     saveButton.addClass("cardButtons");
-    saveButton.click(function (event) {
-      saveUserFav(data);
-    });
 
     // loop through all ingredient entries and add them to new Ingredients list
     for (j = 0; j < data[i].ingredients.length; j++) {
@@ -571,7 +607,6 @@ function displayResults(data) {
     newCard.append(newInstructions);
     newCard.append(saveButton);
     // append card onto cocktail list
-    todayCocktail.hide();
     cocktailList.append(newCard);
   }
 }
@@ -598,8 +633,11 @@ function searchCocktails(ingInput) {
 // USER INTERACTIONS
 $("#search").on("click", function (event) {
   event.preventDefault();
+  todayCocktail.hide();
+  favoritesDiv.hide();
+  cocktailList.show();
   ingredient = searchInput.val();
-  for (let i = 0; i < ingredientList.length; i++) {
+  for (i = 0; i < ingredientList.length; i++) {
     if (ingredient === "") {
       ingredient = ingredientList[i];
     } else {
@@ -614,9 +652,11 @@ $("#search").on("click", function (event) {
 
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
+  todayCocktail.hide();
+  favoritesDiv.hide();
+  cocktailList.show();
   ingredient = searchInput.val();
-
-  for (let i = 0; i < ingredientList.length; i++) {
+  for (i = 0; i < ingredientList.length; i++) {
     if (ingredient === "") {
       ingredient = ingredientList[i];
     } else {
@@ -628,7 +668,16 @@ $("#search-form").on("submit", function (event) {
     searchCocktails(ingredient);
   }
 });
-
+cocktailList.click("button", function (event) {
+  saveUserFav(event.target);
+  console.log("savebutton");
+});
+favoritesButton.on("click", function (event) {
+  event.preventDefault();
+  favoritesDiv.show();
+  todayCocktail.hide();
+  cocktailList.hide();
+});
 addIngredientButton.on("click", function (event) {
   event.preventDefault();
   ingredient = searchInput.val();
@@ -638,13 +687,10 @@ addIngredientButton.on("click", function (event) {
   ingredientListItem.text(ingredient);
   displayList.append(ingredientListItem);
 });
-
 function addIngredient(ingredient) {
   ingredientList.push(ingredient);
-
   console.log(ingredientList);
 }
-
 $("#clear").on("click", function () {
   console.log("clear");
   ingredientList = [];
@@ -652,6 +698,8 @@ $("#clear").on("click", function () {
 });
 
 // INITIALIZATIONS
+favoritesDiv.hide();
+displayFavoritesList();
 setUpLists();
 checkLocation();
 
@@ -675,21 +723,21 @@ $(function () {
   });
 });
 
-//Help Button 
-$( function() {
-  $( "#helpButton" ).dialog({
+//Help Button
+$(function () {
+  $("#helpButton").dialog({
     autoOpen: false,
     show: {
       effect: "blind",
-      duration: 1000
+      duration: 1000,
     },
     hide: {
       effect: "explode",
-      duration: 1000
-    }
+      duration: 1000,
+    },
   });
 
-  $( "#help-button" ).on( "click", function() {
-    $( "#helpButton" ).dialog( "open" );
+  $("#help-button").on("click", function () {
+    $("#helpButton").dialog("open");
   });
-} );
+});

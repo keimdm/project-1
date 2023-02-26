@@ -75,6 +75,7 @@
   border-style: solid;
   border-color: black;
   border-width: 0 5px 5px 0;
+  color: #000;
 }
 
 /* Create search button */
@@ -128,8 +129,16 @@ body {
   color: white;
   border-radius: 5px;
 }
+#favorites-button {
+  background-color: rgb(185, 104, 104);
+  border: 0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 5px;
+}
 
-#clear:hover{
+#clear:hover {
   background-color: rgb(153, 61, 61);
 }
 #add-ingredient:hover {
@@ -138,9 +147,12 @@ body {
 #search:hover {
   background-color: rgb(153, 61, 61);
 }
-  #help-button:hover {
-    background-color: rgb(153, 61, 61);
-  }
+#help-button:hover {
+  background-color: rgb(153, 61, 61);
+}
+#favorites-button:hover {
+  background-color: rgb(153, 61, 61);
+}
 
 .cardButtons {
   border: none;
@@ -226,17 +238,17 @@ body {
   color: white;
   border-radius: 5px;
 }
- #helpButton {
+#helpButton {
   border-style: solid;
   border-color: white;
   border-radius: 25px;
   background-color: rgb(185, 104, 104);
   color: white;
-} 
+}
 
-#ing-search{
-border-radius: 5px;
-Color:white;
-border-color: rgb(185, 104, 104);
-width: 200px;
+#ing-search {
+  border-radius: 5px;
+  color: black;
+  border-color: rgb(185, 104, 104);
+  width: 200px;
 }
