@@ -5,7 +5,7 @@ var searchButEl = $("#search");
 var todayCocktail = $("#today-cocktail");
 var favoritesDiv = $("#favorites-list");
 var ingredient;
-
+var displayList = $("#display-list");
 var dialog = $("#dialog");
 
 // DATA
@@ -336,14 +336,14 @@ displayFavoritesList();
 function displayCocktailDay(data) {
   var cocktailRand = Math.floor(Math.random() * data.length);
   var cocktailSelected = data[cocktailRand];
-  todayCocktail.children().eq(1).text(cocktailSelected.name);
-  todayCocktail.children().eq(2).empty();
+  todayCocktail.children().eq(2).text(cocktailSelected.name);
+  todayCocktail.children().eq(3).empty();
   for (i = 0; i < cocktailSelected.ingredients.length; i++) {
     var newLI = $(document.createElement("li"));
     newLI.text(cocktailSelected.ingredients[i]);
-    todayCocktail.children().eq(2).append(newLI);
+    todayCocktail.children().eq(3).append(newLI);
   }
-  todayCocktail.children().eq(4).text(cocktailSelected.instructions);
+  todayCocktail.children().eq(5).text(cocktailSelected.instructions);
   makeHaikuList(cocktailSelected);
 }
 
@@ -545,6 +545,7 @@ function displayHaiku(text) {
   for (i = 0; i < text.length; i++) {
     var newP = $(document.createElement("p"));
     newP.text(text[i]);
+    newP.addClass("newP");
     dialog.append(newP);
   }
 }
@@ -641,9 +642,29 @@ $(function () {
       effect: "explode",
       duration: 1000,
     },
+    closeText: "",
   });
 
   $("#opener").on("click", function () {
     $("#dialog").dialog("open");
+  });
+});
+
+//Help Button
+$(function () {
+  $("#helpButton").dialog({
+    autoOpen: false,
+    show: {
+      effect: "blind",
+      duration: 1000,
+    },
+    hide: {
+      effect: "explode",
+      duration: 1000,
+    },
+  });
+
+  $("#help-button").on("click", function () {
+    $("#helpButton").dialog("open");
   });
 });

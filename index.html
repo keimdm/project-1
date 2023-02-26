@@ -39,11 +39,22 @@
     <div>
       <ul id="display-list"></ul>
     </div>
-    <button id="add-ingredient">Add</button>
-    <button id="clear">Clear</button>
-    <button id="search">Search</button>
-    <div id="favorites-list">Favorites list</div>
+    <div class="buttonContainer">
+      <button id="add-ingredient">Add</button>
+      <button id="clear">Clear</button>
+      <button id="search">Search</button>
+      <button id="help-button">Help</button>
+    </div>
+    <div id="helpButton">
+      <p>
+        Click Add to add your favorite Ingredients,Click CLEAR to delete
+        ingridients,Click SEARCH to search for the cocktail with the selected
+        ingredient
+      </p>
+    </div>
+
     <div id="today-cocktail">
+      <button id="opener" style="float: right"></button>
       <h1>Today's Cocktail</h1>
       <img
         src="./assets/images/cocktailbw.png"
@@ -51,28 +62,18 @@
         height="100px"
         width="100px"
       />
-      <p>Cocktail Name</p>
-
+      <p>LOADING...</p>
       <ul>
         <li>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis,
           magnam!
         </li>
-        <li>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Reprehenderit, magnam?
-        </li>
-        <li>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
-          iste.
-        </li>
+        <li>LOADING...</li>
+        <li>LOADING...</li>
       </ul>
-      <p>Cocktail Instructions</p>
+      <p></p>
       <!--Cocktail Dialog-->
-      <div id="dialog" title="Cocktail">
-        <p>This cocktail is based on today weather</p>
-      </div>
-      <button id="opener"></button>
+      <div id="dialog"></div>
     </div>
 
     <!--Add list object or container of some kind with id recipe-list-->
