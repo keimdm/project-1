@@ -226,3 +226,17 @@ body {
   color: white;
   border-radius: 5px;
 }
+ #helpButton {
+  border-style: solid;
+  border-color: white;
+  border-radius: 25px;
+  background-color: rgb(185, 104, 104);
+  color: white;
+} 
+
+#ing-search{
+border-radius: 5px;
+Color:white;
+border-color: rgb(185, 104, 104);
+width: 200px;
+}
