@@ -709,6 +709,7 @@ cocktailList.click("button", function (event) {
 // click event to display favorites
 favoritesButton.on("click", function (event) {
   event.preventDefault();
+  displayFavoritesList();
   favoritesDiv.show();
   todayCocktail.hide();
   cocktailList.hide();
