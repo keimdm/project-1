@@ -269,6 +269,6 @@ body {
   #search,
   #help-button,
   #favorites-button {
-    margin-bottom: -500px;
+    padding-bottom: 0;
   }
 }
