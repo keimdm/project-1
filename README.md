@@ -6,8 +6,6 @@ This application was created for the purposes of assisting the user with making 
 
 ## Table of Contents
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
@@ -20,6 +18,8 @@ To install this application, you need clone the repository. To clone the reposit
 ## Usage
 
 In order to use this application, you will be able to write ingredients in the search bar. You can only put in one ingredient at a time. If you want to add multiple ingredients to filter out drinks that have those specific ingredients, put the ingredient in the search bar and please the "add" button to add the ingredients in a list. You can add as many ingredients as you want but the recipes will only show up if the recipes has all the ingredients in the list. After you have the ingredient(s) you want, press the "search" button to receive your results. The results will show the name of the drink, the ingredients it contains, the servings, and the instructions on the drink. You can press the clear to clear the list and enter a new set of ingredients or singular ingredient and press "search" to get a new set of results. The "help" button is there in case you need instructions on how to use the website. The page will also load with a random cocktail and its ingredients and instructions.
+
+Deployed website: https://keimdm.github.io/recipe-search/
 
 ![showing page when you put an ingredient in the search bar and add it to the list](assets/images/Screen%20Shot%202023-02-27%20at%202.05.09%20AM.png)
 
@@ -39,7 +39,7 @@ Api Ninjas: https://api-ninjas.com/
 
 ## License
 
-N/A
+MIT
 
 ## Features
 
