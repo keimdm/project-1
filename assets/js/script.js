@@ -769,6 +769,7 @@ $(function () {
       effect: "explode",
       duration: 1000,
     },
+    closeText: "",
   });
 
   $("#help-button").on("click", function () {

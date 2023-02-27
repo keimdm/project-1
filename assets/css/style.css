@@ -214,6 +214,32 @@ body {
   margin-top: -5rem;
 }
 
+#help-button {
+  background-color: rgb(185, 104, 104);
+  border: 0px;
+  font-size: 15px;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 5px;
+}
+#helpButton {
+  background-color: rgb(153, 61, 61);
+  border: white 2px solid;
+  border-radius: 25px;
+}
+
+#helpButton p {
+  padding: 0.5em;
+  color: white;
+}
+
+#ing-search {
+  border-radius: 5px;
+  color: black;
+  border-color: rgb(185, 104, 104);
+  width: 200px;
+}
+
 /* Desktop Styles */
 
 @media (min-width: 1500px) {
@@ -228,27 +254,21 @@ body {
     margin: 0px -50%;
     margin-top: 7%;
   }
-}
 
-#help-button {
-  background-color: rgb(185, 104, 104);
-  border: 0px;
-  font-size: 15px;
-  padding-bottom: 2%;
-  color: white;
-  border-radius: 5px;
-}
-#helpButton {
-  border-style: solid;
-  border-color: white;
-  border-radius: 25px;
-  background-color: rgb(185, 104, 104);
-  color: white;
-}
+  #today-cocktail {
+    width: 30%;
+    margin: auto;
+  }
 
-#ing-search {
-  border-radius: 5px;
-  color: black;
-  border-color: rgb(185, 104, 104);
-  width: 200px;
+  #display-list {
+    padding-bottom: 0.99;
+  }
+
+  #add-ingredient,
+  #clear,
+  #search,
+  #help-button,
+  #favorites-button {
+    margin-bottom: -500px;
+  }
 }
