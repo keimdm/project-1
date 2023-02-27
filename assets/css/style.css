@@ -271,4 +271,9 @@ body {
   #favorites-button {
     padding-bottom: 0;
   }
+
+  .result {
+    width: 30%;
+    margin: auto;
+  }
 }
