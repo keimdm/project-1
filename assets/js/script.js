@@ -11,11 +11,12 @@ var favoritesButton = $("#favorites-button");
 var addIngredientButton = $("#add-ingredient");
 
 // DATA
-// add NYC latitude and longitude
 var ingredientList = [];
 var tempWord;
+// Coordinates of NYC to use as default
 var latNYC = "40.7129";
 var lonNYC = "-74.0060";
+// hot weather appropriate ingredients
 var hotIngredients = [
   "mint",
   "lime",
@@ -28,6 +29,7 @@ var hotIngredients = [
   "cucumber",
   "grapefruit",
 ];
+// cold weather appropriate ingredients
 var coldIngredients = [
   "chocolate",
   "maple",
@@ -39,6 +41,7 @@ var coldIngredients = [
   "apple",
   "pear",
 ];
+// spring seasonal ingredients
 var springIngredients = [
   "strawberry",
   "lemon",
@@ -51,6 +54,7 @@ var springIngredients = [
   "apricot",
   "melon",
 ];
+// summer seasonal ingredients
 var summerIngredients = [
   "bananas",
   "blackberries",
@@ -62,7 +66,9 @@ var summerIngredients = [
   "lime",
   "mango",
 ];
+// fall seasonal ingredients
 var fallIngredients = ["apple", "cider", "caramel", "cinnamon", "ginger"];
+// winter seasonal ingredients
 var winterIngredients = [
   "pear",
   "orange",
@@ -71,6 +77,7 @@ var winterIngredients = [
   "pomegranate",
   "port",
 ];
+// list of common cocktail ingredients and respective number of syllables for haiku generations
 var commonIngredientsDict = [
   ["pear", 1],
   ["orange", 2],
@@ -148,6 +155,7 @@ var commonIngredientsDict = [
   ["tequila", 3],
   ["mezcal", 2],
 ];
+// list of months with respective syllables + 1 for haiku generation (the +1 accomodates the filler words)
 var monthsDict = [
   ["January", 5],
   ["February", 5],
@@ -184,15 +192,9 @@ var haikuStructure = [
     max: 5,
   }),
 ];
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "cb37aed766msh4422bf0302f36fbp1aa0dejsn1b793f56d67c",
-    "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-  },
-};
 
 // FUNCTIONS
+// gets user location using geolocation API in browser, to feed into Weather API
 function checkLocation() {
   var lat;
   var lon;
@@ -204,6 +206,7 @@ function checkLocation() {
         console.log("allowed");
         getWeather(lat, lon);
       },
+      // if blocked, it uses the coordinates of NYC
       function () {
         lat = latNYC;
         lon = lonNYC;
@@ -215,6 +218,7 @@ function checkLocation() {
   }
 }
 
+// gets weather for given lat and lon - passes temperature data to be interpreted in getCocktails function
 function getWeather(latitude, longitude) {
   console.log(latitude);
   console.log(longitude);
@@ -234,6 +238,7 @@ function getWeather(latitude, longitude) {
     });
 }
 
+// interprets temperature as either warm or cool, looks at season to create list of two search terms for cocktail API
 function getCocktails(temperature) {
   var ingredientA;
   var ingredientB;
@@ -261,11 +266,13 @@ function getCocktails(temperature) {
     ingredientB = fallIngredients[randFall];
   }
   var searchString = ingredientA + ", " + ingredientB;
+  //list of possible haiku words includes the ingredients search terms and the month
   haikuWords.push(dayjs().format("MMMM"));
   addEntry(dayjs().format("MMMM"));
   haikuWords.push(ingredientA);
   addEntry(ingredientA);
   console.log(searchString);
+  // cocktail API query
   $.ajax({
     method: "GET",
     //Only cocktails containing all listed ingredients will be returned.
@@ -291,6 +298,7 @@ function getCocktails(temperature) {
           },
         });
       } else {
+        // if two ingredient query was successful, also add ingredient 2 to possible haiku words
         haikuWords.push(ingredientB);
         addEntry(ingredientB);
         displayCocktailDay(result);
@@ -327,6 +335,8 @@ function saveUserFav(target) {
 
   localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
 }
+
+// displays user favorited cocktails on the screen
 function displayFavoritesList() {
   //get the data from localStorage-it's an array
   var favoritesList = localStorage.getItem("favoritesList");
@@ -360,6 +370,7 @@ function displayFavoritesList() {
   }
 }
 
+// displays cocktail of the day on the screen
 function displayCocktailDay(data) {
   var cocktailRand = Math.floor(Math.random() * data.length);
   var cocktailSelected = data[cocktailRand];
@@ -374,6 +385,7 @@ function displayCocktailDay(data) {
   makeHaikuList(cocktailSelected);
 }
 
+// Adds entry to the haiku dictionary - including the word, the number of syllables and the type of word (either noun or month)
 function addEntry(word) {
   console.log(word);
   var syllables = 0;
@@ -393,6 +405,7 @@ function addEntry(word) {
   haikuDictionary.push(newEntry);
 }
 
+// creates a list listing only the word (without the syllable number) from the commonIngredientsDict and monthsDict listed above
 function setUpLists() {
   for (i = 0; i < commonIngredientsDict.length; i++) {
     commonIngredients.push(commonIngredientsDict[i][0]);
@@ -404,7 +417,9 @@ function setUpLists() {
   console.log(months);
 }
 
+// creates a list of 8 words adding on to what was added to the list above - ingredients A and B, and the month
 function makeHaikuList(data) {
+  //looks for more possible ingredients to include in the haiku in the recipe, by breaking out each ingredient line into individual words
   for (i = 0; i < data.ingredients.length; i++) {
     var ingredientLine = data.ingredients[i].split(" ");
     for (j = 0; j < ingredientLine.length; j++) {
@@ -414,6 +429,7 @@ function makeHaikuList(data) {
         addEntry(word);
       }
       if (
+        // removes commas which can give a false negative
         commonIngredients.includes(word.slice(0, word.length - 1)) &&
         haikuWords.length < 8
       ) {
@@ -422,6 +438,7 @@ function makeHaikuList(data) {
       }
     }
   }
+  // repeat some words if needed until there are 8 - except for the month, which can only occur once
   while (haikuWords.length < 8) {
     for (k = 0; k < haikuWords.length; k++) {
       if (!months.includes(haikuWords[k]) && haikuWords.length < 8) {
@@ -434,6 +451,7 @@ function makeHaikuList(data) {
   makeHaiku();
 }
 
+// allocates words from haikuWords to three lines without going over the number of syllables, until a max of 3 are left in each line
 function makeHaiku() {
   testDone = false;
   while (testDone === false) {
@@ -460,6 +478,7 @@ function makeHaiku() {
     }
   }
   console.log(haikuStructure);
+  // the month should be the last word in whatever line it's in
   for (i = 0; i < haikuStructure.length; i++) {
     var monthCheck = false;
     var monthIndex = -1;
@@ -476,6 +495,7 @@ function makeHaiku() {
         haikuStructure[i].words[monthIndex];
       haikuStructure[i].words[monthIndex] = placeholder;
       var difference = haikuStructure[i].max - haikuStructure[i].syllables;
+      // add filler words to fill in remaining syllables
       if (difference === 0) {
         haikuStructure[i].words.splice(
           haikuStructure[i].words.length - 1,
@@ -549,6 +569,7 @@ function makeHaiku() {
     }
   }
   var finishedPoem = ["", "", ""];
+  // add commas/formatting
   for (i = 0; i < haikuStructure.length; i++) {
     for (j = 0; j < haikuStructure[i].words.length; j++) {
       var nextWord = haikuStructure[i].words[j];
@@ -568,6 +589,7 @@ function makeHaiku() {
   displayHaiku(finishedPoem);
 }
 
+// display haiku on screen in the info button
 function displayHaiku(text) {
   for (i = 0; i < text.length; i++) {
     var newP = $(document.createElement("p"));
@@ -577,6 +599,7 @@ function displayHaiku(text) {
   }
 }
 
+// displays cocktail search results
 function displayResults(data) {
   console.log("hello from displayResults");
   // loop through all entries in cocktail data
@@ -611,6 +634,7 @@ function displayResults(data) {
   }
 }
 
+// runs API query on ingredient search terms input by user
 function searchCocktails(ingInput) {
   console.log("search");
   $.ajax({
@@ -630,13 +654,21 @@ function searchCocktails(ingInput) {
   });
 }
 
+// adds searched ingredient to list (called by click event)
+function addIngredient(ingredient) {
+  ingredientList.push(ingredient);
+  console.log(ingredientList);
+}
+
 // USER INTERACTIONS
+// search button click event
 $("#search").on("click", function (event) {
   event.preventDefault();
   todayCocktail.hide();
   favoritesDiv.hide();
   cocktailList.show();
   ingredient = searchInput.val();
+  // adds any ingredients in list to search term
   for (i = 0; i < ingredientList.length; i++) {
     if (ingredient === "") {
       ingredient = ingredientList[i];
@@ -650,6 +682,7 @@ $("#search").on("click", function (event) {
   }
 });
 
+// event for pressing enter in the search bar
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
   todayCocktail.hide();
@@ -668,16 +701,19 @@ $("#search-form").on("submit", function (event) {
     searchCocktails(ingredient);
   }
 });
+// click event for save button
 cocktailList.click("button", function (event) {
   saveUserFav(event.target);
   console.log("savebutton");
 });
+// click event to display favorites
 favoritesButton.on("click", function (event) {
   event.preventDefault();
   favoritesDiv.show();
   todayCocktail.hide();
   cocktailList.hide();
 });
+// click event to add ingredient to list
 addIngredientButton.on("click", function (event) {
   event.preventDefault();
   ingredient = searchInput.val();
@@ -687,10 +723,8 @@ addIngredientButton.on("click", function (event) {
   ingredientListItem.text(ingredient);
   displayList.append(ingredientListItem);
 });
-function addIngredient(ingredient) {
-  ingredientList.push(ingredient);
-  console.log(ingredientList);
-}
+
+// click event to clear list
 $("#clear").on("click", function () {
   console.log("clear");
   ingredientList = [];
