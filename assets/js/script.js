@@ -664,9 +664,6 @@ function addIngredient(ingredient) {
 // search button click event
 $("#search").on("click", function (event) {
   event.preventDefault();
-  todayCocktail.hide();
-  favoritesDiv.hide();
-  cocktailList.show();
   ingredient = searchInput.val();
   // adds any ingredients in list to search term
   for (i = 0; i < ingredientList.length; i++) {
@@ -678,6 +675,9 @@ $("#search").on("click", function (event) {
   }
   console.log(ingredient);
   if (ingredient !== "") {
+    todayCocktail.hide();
+    favoritesDiv.hide();
+    cocktailList.show();
     searchCocktails(ingredient);
   }
 });
@@ -685,9 +685,6 @@ $("#search").on("click", function (event) {
 // event for pressing enter in the search bar
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
-  todayCocktail.hide();
-  favoritesDiv.hide();
-  cocktailList.show();
   ingredient = searchInput.val();
   for (i = 0; i < ingredientList.length; i++) {
     if (ingredient === "") {
@@ -698,6 +695,9 @@ $("#search-form").on("submit", function (event) {
   }
   console.log(ingredient);
   if (ingredient !== "") {
+    todayCocktail.hide();
+    favoritesDiv.hide();
+    cocktailList.show();
     searchCocktails(ingredient);
   }
 });
